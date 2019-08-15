@@ -16,7 +16,7 @@ function converterFahrenheit(tempCelsius) {
 
 var valor_caixa_azul = document.getElementById("caixa_azul").innerHTML;
 var caixa_amarela = document.getElementById("caixa_amarela");
-caixa_amarela.innerHTML = converterFahrenheit(valor_caixa_azul);
+caixa_amarela.innerHTML = converterFahrenheit(valor_caixa_azul).toFixed(2);
 
 //3
 console.log("Exercício 3");
@@ -27,9 +27,7 @@ var grupos = [
     [ "Carolina" , "Helena", "Marcelo" ]
 ];
 
-var novo_array = [];
-novo_array.push(grupos[2]);
-novo_array.push(grupos[1]);
+var novo_array = grupos.slice(-2,);
 novo_array.push(["Mariana","Felipe","Carla"]);
 
 console.log(novo_array);
@@ -56,7 +54,7 @@ var curso = {
                  (this.n_aval_2_estrelas * 2) +
                  (this.n_aval_3_estrelas * 3) +
                  (this.n_aval_4_estrelas * 4) +
-                 (this.n_aval_5_estrelas * 5) ) / (5 + 4 + 3 + 2 + 1);
+                 (this.n_aval_5_estrelas * 5) ) / this.total_avaliacao();
     }
 }
 
@@ -65,7 +63,7 @@ categoria_principal.innerHTML = curso.categoria[0];
 
 var total_aval = document.getElementById("total_aval");
 total_aval.innerHTML = curso.total_avaliacao();
-document.getElementById("media_aval").innerHTML = curso.media_avaliacao();
+document.getElementById("media_aval").innerHTML = curso.media_avaliacao().toFixed(2);
 
 //5
 console.log("Exercício 5");
@@ -76,12 +74,11 @@ var pessoa = {
 };
 
 function montaTabela(obj) {
-    return '<table>' +
-            '<tr>' + '<th>Nome Completo</th>' + 
-                   + '<th>Email</th>' + '</tr>' +
+    return '<div class="tableBox"><table>' +
+            '<tr>' + '<th>Nome Completo</th><th>Email</th>' + '</tr>' +
             '<tr>' + '<td>' + obj.nome + ' ' + obj.sobrenome + '</td>' +       
             '<td>' + obj.email + '</td>' + '</tr>' +
-           '</table>'; 
+           '</table></div>'; 
 }
 
 document.getElementById("tabela").innerHTML = montaTabela(pessoa);
