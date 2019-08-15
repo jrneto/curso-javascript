@@ -56,3 +56,51 @@ var aluno = {
 
 console.log(aluno.nome_completo());
 console.log(aluno.idade_aluno());
+
+//aula 16
+console.log("--Aula 16--");
+
+// document.getElementById("click-me").onclick = function () {
+//     alert("Você clicou no botão");
+// };
+
+// document.getElementById("hover-me").onmouseover = function () {
+//     alert("Você passou com o cursor no botão");
+// };
+
+// document.getElementById("leave-me").onmouseleave = function () {
+//     alert("Você saiu com o cursor no botão");
+// };
+
+// document.onkeydown = function() {
+//     alert('Você apertou alguma tecla ' + event.keyCode);
+// };
+
+//Aula 17
+console.log("--aula 17--");
+// document.getElementById("botao_cor").onclick =  function() {
+//     document.getElementById("botao_cor").style['background-color'] = "purple";
+//     document.getElementById("botao_cor").style.transform = "translateX(100px)";
+// };
+//forma 2
+// document.getElementById("botao_cor").onclick =  function() {
+//     this.style['background-color'] = "purple";
+//     this.style.transform = "translateX(100px)";
+// };
+
+//forma 3
+// var botao = document.getElementById("botao_cor");
+// botao.onclick =  function() {
+//     botao.style['background-color'] = "purple";
+//     botao.style.transform = "translateX(100px)";
+// };
+
+//Aula 18
+console.log("--Aula 18--");
+
+var elementos = document.getElementsByClassName("exemplo");
+console.log(elementos);
+elementos[0].innerHTML = "teste 1";
+
+var elementosP = document.getElementsByTagName("p");
+console.log(elementosP);
