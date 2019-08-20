@@ -98,9 +98,37 @@ console.log("--aula 17--");
 //Aula 18
 console.log("--Aula 18--");
 
-var elementos = document.getElementsByClassName("exemplo");
-console.log(elementos);
-elementos[0].innerHTML = "teste 1";
+// var elementos = document.getElementsByClassName("exemplo");
+// console.log(elementos);
+// elementos[0].innerHTML = "teste 1";
 
-var elementosP = document.getElementsByTagName("p");
-console.log(elementosP);
+// var elementosP = document.getElementsByTagName("p");
+// console.log(elementosP);
+
+//Aula 19
+console.log("--Aula 19--");
+
+var elementos = document.getElementsByClassName("exemplo");
+
+// for (var i = 0; i < elementos.length; i++)
+// {
+//     elementos[i].style.color = "orange";
+//     elementos[i].style['font-weight'] = "bold";
+// }
+
+// for (var e in elementos)
+// {
+//     console.log(e);
+// }
+var count = 0
+while (count < elementos.length) {
+    elementos[count].style.color = "blue";
+    count++;
+}
+
+console.log(count);
+count = 2;
+do {
+    elementos[count].style.color = "red";
+    count--;
+} while (count != 0);
