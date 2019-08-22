@@ -95,7 +95,7 @@ var ano_atual = new Date();
 ano_atual = ano_atual.getFullYear();
 document.getElementById("current_year").innerHTML = ano_atual;
 
-//Api Key google maps: AIzaSyBIV27s9DvzUMSZsxFxpLhIrq0g7z1D29o
+//Api Key google maps: 
 
    
 
