@@ -108,7 +108,7 @@ console.log("--Aula 18--");
 //Aula 19
 console.log("--Aula 19--");
 
-var elementos = document.getElementsByClassName("exemplo");
+//var elementos = document.getElementsByClassName("exemplo");
 
 // for (var i = 0; i < elementos.length; i++)
 // {
@@ -120,15 +120,51 @@ var elementos = document.getElementsByClassName("exemplo");
 // {
 //     console.log(e);
 // }
-var count = 0
-while (count < elementos.length) {
-    elementos[count].style.color = "blue";
-    count++;
-}
+// var count = 0
+// while (count < elementos.length) {
+//     elementos[count].style.color = "blue";
+//     count++;
+// }
 
-console.log(count);
-count = 2;
-do {
-    elementos[count].style.color = "red";
-    count--;
-} while (count != 0);
+// console.log(count);
+// count = 2;
+// do {
+//     elementos[count].style.color = "red";
+//     count--;
+// } while (count != 0);
+
+//
+//Aula 19
+ console.log("--Aula 27--");
+// console.log("Mensagem 1");
+
+// window.setTimeout(function() {
+//     console.log("Mensagem 2");
+// },3000);
+
+// document.getElementById("mostrar-loader").onclick = function () {
+
+//     document.getElementById("spinner-loader").style.display = "initial";
+//     window.setTimeout(function(){
+//         document.getElementById("spinner-loader").style.display = "none";
+//     }, 5000);
+
+// }; 
+
+// var count = 0;
+//     window.setInterval(function(){
+//         console.log(count);
+//         count++;
+//     }, 1000);
+
+var relogio = document.getElementById("relogio");
+relogio.innerHTML = "";
+
+window.setInterval(function() {
+    var data = new Date();
+    var h = data.getHours();
+    var m = data.getMinutes();
+    var s = data.getSeconds();
+    relogio.innerHTML = h + ':' + m + ':' + s;
+},1000); 
+
