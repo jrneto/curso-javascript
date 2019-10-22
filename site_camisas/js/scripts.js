@@ -60,7 +60,7 @@ var parametros_pesquisa = {
     "cor": "colorida",
     "gola": "gola_v",
     "qualidade": "q150",
-    "estampa": "com_estampa",
+    "estampa": "sem_estampa",
     "embalagem": "bulk"
 }
 
@@ -82,9 +82,70 @@ var parametros_pesquisa = {
 
 // Resolução do desafio:
 
+function carregarPaginaUltimoOrcamento() {
+    if (localStorage["ultimo_orcamento"])  {
+        console.log(localStorage["ultimo_orcamento"]);
+        parametros_pesquisa = JSON.parse(localStorage["ultimo_orcamento"]);
+    } else {
+        console.log(localStorage["ultimo_orcamento"]);
+    }
+}
+
+
 $(function(){
 
-    // Se quiser uma sugestão dos passos a seguir para a resolução, veja mais abaixo.
+    carregarPaginaUltimoOrcamento();
+
+    $("#quantidade").change(function(){
+        parametros_pesquisa.qualidade = this.value;
+    });
+
+    // 1. Crie uma função para calcular o preço baseado nos parâmetros da variável "parametros_pesquisa" e solte o 
+    // valor no console para testar se está certo.
+    function calcularPreco() {
+        var precoCamiseta = 0;
+        switch (parametros_pesquisa.cor) {
+            case "colorida":
+                if (parametros_pesquisa.gola == 'gola_v') {
+                    if (parametros_pesquisa.estampa == 'com_estampa') {
+                        precoCamiseta = camisetas.colorida.gola_v.com_estampa.preco_unit;
+                    } else if (parametros_pesquisa.estampa == 'sem_estampa') {
+                        precoCamiseta = camisetas.colorida.gola_v.sem_estampa.preco_unit;
+                    }
+                } else if (parametros_pesquisa.gola == 'gola_normal') {
+                    if (parametros_pesquisa.colorida.gola_normal.com_estampa == 'com_estampa') {
+                        precoCamiseta = parametros_pesquisa.gola_normal.com_estampa.preco_unit;
+                    } else  if (parametros_pesquisa.colorida.gola_normal.sem_estampa == 'sem_estampa') {
+                        precoCamiseta = parametros_pesquisa.colorida.gola_normal.sem_estampa.preco_unit;
+                    }
+                }
+                break;
+            case "branca":
+                    if (parametros_pesquisa.gola == 'gola_v') {
+                        if (parametros_pesquisa.estampa == 'com_estampa') {
+                            precoCamiseta = camisetas.branca.gola_v.com_estampa.preco_unit;
+                        } else if (parametros_pesquisa.estampa == 'sem_estampa') {
+                            precoCamiseta = camisetas.branca.gola_v.sem_estampa.preco_unit;
+                        }
+                    } else if (parametros_pesquisa.gola == 'gola_normal') {
+                        if (parametros_pesquisa.colorida.branca.com_estampa == 'com_estampa') {
+                            precoCamiseta = parametros_pesquisa.gola_normal.com_estampa.preco_unit;
+                        } else  if (parametros_pesquisa.colorida.gola_normal.sem_estampa == 'sem_estampa') {
+                            precoCamiseta = parametros_pesquisa.colorida.gola_normal.sem_estampa.preco_unit;
+                        }
+                    }
+                break;
+            default:
+                alert("Cor indisponível!");
+        }
+
+        window.localStorage.setItem("ultimo_orcamento", JSON.stringify(parametros_pesquisa));
+        window.localStorage.setItem("teste", "xxx");
+        return precoCamiseta;
+
+    }
+
+    console.log(calcularPreco() );
     
 });
 
