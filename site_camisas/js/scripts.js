@@ -57,7 +57,7 @@ var camisetas = {
 
 var parametros_pesquisa = {
     "quantidade": 10,
-    "cor": "colorida",
+    "cor": "Cor",
     "gola": "gola_v",
     "qualidade": "q150",
     "estampa": "sem_estampa",
@@ -86,6 +86,80 @@ function carregarPaginaUltimoOrcamento() {
     if (localStorage["ultimo_orcamento"])  {
         console.log(localStorage["ultimo_orcamento"]);
         parametros_pesquisa = JSON.parse(localStorage["ultimo_orcamento"]);
+        
+        $("#quantidade").val(parametros_pesquisa.quantidade);
+        $("#result_cor").text(parametros_pesquisa.cor);
+        $("#result_quantidade").text(parametros_pesquisa.quantidade);
+        $("#result_gola").text($(parametros_pesquisa.gola).text());
+        $("#result_qualidade").text($(parametros_pesquisa.qualidade).text());
+        $("#result_estampa").text($(parametros_pesquisa.estampa).find(":selected").text());
+        $("#result_embalagem").text($(parametros_pesquisa.embalagem).find(":selected").text());   
+
+        switch (parametros_pesquisa.cor) {
+            case "Branca":
+                $("#branca").addClass("selected");
+                $("#colorida").removeClass("selected");
+                break;
+            case "Cor":
+                $("#colorida").addClass("selected");
+                $("#branca").removeClass("selected");
+                
+                break;
+            default:
+                alert("A cor especificada não existe!");
+                break;
+        }
+
+        switch (parametros_pesquisa.gola) {
+            case "gola_v":
+                $("#gola_v").addClass("selected");
+                $("#gola_normal").removeClass("selected");                
+                break;
+            case "gola_normal":
+                $("#gola_normal").addClass("selected");
+                $("#gola_v").removeClass("selected");
+                break;
+            default:
+                alert("A gola especificada não existe!");
+                break;
+        }
+
+        switch (parametros_pesquisa.qualidade) {
+            case "q150":
+                $("#q150").addClass("selected");
+                $("#q190").removeClass("selected");
+                break;
+            case "q190":
+                $("#q190").addClass("selected");
+                $("#q150").removeClass("selected");
+                break;
+            default:
+                alert("A qualidade especificada não existe!");
+                break;
+        }
+
+        switch (parametros_pesquisa.estampa) {
+            case "com_estampa":
+                $('#estampa').val("com_estampa");
+                break;
+            case "sem_estampa":
+                $('#estampa').val("sem_estampa");
+                break;
+            default:
+                break;
+        }  
+        
+        switch (parametros_pesquisa.embalagem) {
+            case "bulk":
+                $('#embalagem').val("bulk");
+                break;
+            case "unitaria":
+                $('#embalagem').val("unitaria");
+                break;
+            default:
+                break;
+        }
+        
     } else {
         console.log(localStorage["ultimo_orcamento"]);
     }
@@ -94,18 +168,92 @@ function carregarPaginaUltimoOrcamento() {
 
 $(function(){
 
+    var acrescimoCamisaAltaQualidade = 1.12;
+    var precoEmbalagamUnitaria = 0.15;
+
     carregarPaginaUltimoOrcamento();
 
     $("#quantidade").change(function(){
-        parametros_pesquisa.qualidade = this.value;
+        parametros_pesquisa.quantidade = $(this).val(); 
+        $("#result_quantidade").text(parametros_pesquisa.quantidade);
+        AtualizarPrecoTela();
+        console.log(parametros_pesquisa.quantidade);
+    });
+
+    $("#branca").click(function(){
+        parametros_pesquisa.cor = $(this).text(); 
+        $("#branca").addClass("selected");
+        $("#colorida").removeClass("selected");
+        $("#result_cor").text(parametros_pesquisa.cor);
+        AtualizarPrecoTela();
+        console.log(parametros_pesquisa.cor);
+    });
+
+    $("#colorida").click(function(){
+        parametros_pesquisa.cor = $(this).text(); 
+        $("#colorida").addClass("selected");
+        $("#branca").removeClass("selected");
+        $("#result_cor").text(parametros_pesquisa.cor);
+        AtualizarPrecoTela();
+        console.log(parametros_pesquisa.cor);
+    });
+
+    $("#gola_v").click(function(){
+        parametros_pesquisa.gola = $(this).attr("id"); 
+        $("#gola_v").addClass("selected");
+        $("#gola_normal").removeClass("selected");
+        $("#result_gola").text($(this).text());
+        AtualizarPrecoTela();
+        console.log(parametros_pesquisa.gola);
+    });
+
+    $("#gola_normal").click(function(){
+        parametros_pesquisa.gola = $(this).attr("id"); 
+        $("#gola_normal").addClass("selected");
+        $("#gola_v").removeClass("selected");
+        $("#result_gola").text($(this).text());
+        AtualizarPrecoTela();
+        console.log(parametros_pesquisa.gola);
+    });
+
+    $("#q150").click(function(){
+        parametros_pesquisa.qualidade = $(this).attr("id"); 
+        $("#q150").addClass("selected");
+        $("#q190").removeClass("selected");
+        $("#result_qualidade").text($(this).text());
+        AtualizarPrecoTela();
+        console.log(parametros_pesquisa.qualidade);
+    });
+
+    $("#q190").click(function(){
+        parametros_pesquisa.qualidade = $(this).attr("id"); 
+        $("#q190").addClass("selected");
+        $("#q150").removeClass("selected");
+        $("#result_qualidade").text($(this).text());
+        AtualizarPrecoTela();
+        console.log(parametros_pesquisa.qualidade);
+    });
+
+    $("#estampa").change(function(){
+        parametros_pesquisa.estampa = $(this).val();  
+        $("#result_estampa").text($(this).find(":selected").text());
+        AtualizarPrecoTela();
+        console.log(parametros_pesquisa.estampa);
+    });
+
+    $("#embalagem").change(function(){
+        parametros_pesquisa.embalagem = $(this).val();
+        $("#result_embalagem").text($(this).find(":selected").text());   
+        AtualizarPrecoTela();   
+        console.log(parametros_pesquisa.embalagem);
     });
 
     // 1. Crie uma função para calcular o preço baseado nos parâmetros da variável "parametros_pesquisa" e solte o 
     // valor no console para testar se está certo.
-    function calcularPreco() {
+    function RetornaPrecoUnitario() {
         var precoCamiseta = 0;
         switch (parametros_pesquisa.cor) {
-            case "colorida":
+            case "Cor":
                 if (parametros_pesquisa.gola == 'gola_v') {
                     if (parametros_pesquisa.estampa == 'com_estampa') {
                         precoCamiseta = camisetas.colorida.gola_v.com_estampa.preco_unit;
@@ -120,7 +268,7 @@ $(function(){
                     }
                 }
                 break;
-            case "branca":
+            case "Branca":
                     if (parametros_pesquisa.gola == 'gola_v') {
                         if (parametros_pesquisa.estampa == 'com_estampa') {
                             precoCamiseta = camisetas.branca.gola_v.com_estampa.preco_unit;
@@ -136,7 +284,7 @@ $(function(){
                     }
                 break;
             default:
-                alert("Cor indisponível!");
+                alert("Cor indisponível!"); 
         }
 
         window.localStorage.setItem("ultimo_orcamento", JSON.stringify(parametros_pesquisa));
@@ -145,7 +293,65 @@ $(function(){
 
     }
 
-    console.log(calcularPreco() );
+    function CalcularPreco() {
+        var precoUnitario = RetornaPrecoUnitario();
+        $("#preco-unitario").text(precoUnitario.toFixed(2));
+        var preco = precoUnitario;
+        if (PodeCalcularPreco()) {
+            preco *= parametros_pesquisa.quantidade;
+
+            if (parametros_pesquisa.qualidade == 'q190') {
+                preco = (preco * acrescimoCamisaAltaQualidade);
+            }
+
+            preco += CalcularPrecoEmbalagemUnitaria();
+
+        } else {
+            preco = 0;
+        }        
+        return preco;
+    }
+
+    function CalcularPrecoEmbalagemUnitaria() {
+        var precoEmbalagem = 0;
+        if (parametros_pesquisa.embalagem == "unitaria") {
+            precoEmbalagem = parametros_pesquisa.quantidade * precoEmbalagamUnitaria;
+        }
+        $("#preco-embalagem").text(precoEmbalagem.toFixed(2));
+        return precoEmbalagem;
+    }
+
+    function PodeCalcularPreco() {
+        var temQuantidade = parametros_pesquisa.quantidade > 0;
+        var temPrecoUnitario = RetornaPrecoUnitario() > 0;
+        return temQuantidade && temPrecoUnitario;
+    }
+
+    function AtualizarPrecoTela() {
+        var precoTotal = CalcularPreco();
+        console.log("precoTotal: " + precoTotal);
+        var precoComDesconto = AplicarDesconto(precoTotal);
+        $("#valor-total").text(precoComDesconto.toFixed(2));
+    }
+
+    // faixa 1: acima de 1.000 - Desconto de 15%
+    // faixa 2: acima de 500 - Desconto de 10%
+    // faixa 3: acima de 100 - Desconto de 5%
+    function AplicarDesconto(valorTotal) {
+        var precoDesconto = valorTotal;
+        if (valorTotal >= 1000) {
+            precoDesconto = (precoDesconto * 0.85);
+        } else if (valorTotal < 1000 && valorTotal >= 500) {
+            precoDesconto = (precoDesconto * 0.90);
+        } else if (valorTotal >= 100) {
+            precoDesconto = (precoDesconto * 0.95);
+        } 
+
+        return precoDesconto;
+    }
+
+    console.log(RetornaPrecoUnitario() );
+    console.log(CalcularPreco() );
     
 });
 
