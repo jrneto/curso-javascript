@@ -82,94 +82,96 @@ var parametros_pesquisa = {
 
 // Resolução do desafio:
 
-function carregarPaginaUltimoOrcamento() {
-    if (localStorage["ultimo_orcamento"])  {
-        console.log(localStorage["ultimo_orcamento"]);
-        parametros_pesquisa = JSON.parse(localStorage["ultimo_orcamento"]);
-        
-        $("#quantidade").val(parametros_pesquisa.quantidade);
-        $("#result_cor").text(parametros_pesquisa.cor);
-        $("#result_quantidade").text(parametros_pesquisa.quantidade);
-        $("#result_gola").text($(parametros_pesquisa.gola).text());
-        $("#result_qualidade").text($(parametros_pesquisa.qualidade).text());
-        $("#result_estampa").text($(parametros_pesquisa.estampa).find(":selected").text());
-        $("#result_embalagem").text($(parametros_pesquisa.embalagem).find(":selected").text());   
-
-        switch (parametros_pesquisa.cor) {
-            case "Branca":
-                $("#branca").addClass("selected");
-                $("#colorida").removeClass("selected");
-                break;
-            case "Cor":
-                $("#colorida").addClass("selected");
-                $("#branca").removeClass("selected");
-                
-                break;
-            default:
-                alert("A cor especificada não existe!");
-                break;
-        }
-
-        switch (parametros_pesquisa.gola) {
-            case "gola_v":
-                $("#gola_v").addClass("selected");
-                $("#gola_normal").removeClass("selected");                
-                break;
-            case "gola_normal":
-                $("#gola_normal").addClass("selected");
-                $("#gola_v").removeClass("selected");
-                break;
-            default:
-                alert("A gola especificada não existe!");
-                break;
-        }
-
-        switch (parametros_pesquisa.qualidade) {
-            case "q150":
-                $("#q150").addClass("selected");
-                $("#q190").removeClass("selected");
-                break;
-            case "q190":
-                $("#q190").addClass("selected");
-                $("#q150").removeClass("selected");
-                break;
-            default:
-                alert("A qualidade especificada não existe!");
-                break;
-        }
-
-        switch (parametros_pesquisa.estampa) {
-            case "com_estampa":
-                $('#estampa').val("com_estampa");
-                break;
-            case "sem_estampa":
-                $('#estampa').val("sem_estampa");
-                break;
-            default:
-                break;
-        }  
-        
-        switch (parametros_pesquisa.embalagem) {
-            case "bulk":
-                $('#embalagem').val("bulk");
-                break;
-            case "unitaria":
-                $('#embalagem').val("unitaria");
-                break;
-            default:
-                break;
-        }
-        
-    } else {
-        console.log(localStorage["ultimo_orcamento"]);
-    }
-}
 
 
 $(function(){
 
     var acrescimoCamisaAltaQualidade = 1.12;
     var precoEmbalagamUnitaria = 0.15;
+
+    function carregarPaginaUltimoOrcamento() {
+        if (localStorage["ultimo_orcamento"])  {
+            console.log(localStorage["ultimo_orcamento"]);
+            parametros_pesquisa = JSON.parse(localStorage["ultimo_orcamento"]);
+            
+            $("#quantidade").val(parametros_pesquisa.quantidade);
+            $("#result_cor").text(parametros_pesquisa.cor);
+            $("#result_quantidade").text(parametros_pesquisa.quantidade);
+            $("#result_gola").text($("#" + parametros_pesquisa.gola).text());
+            $("#result_qualidade").text($("#" + parametros_pesquisa.qualidade).text());
+            $("#result_estampa").text($("#estampa").find(":selected").text());
+            $("#result_embalagem").text($("#embalagem").find(":selected").text());   
+    
+            switch (parametros_pesquisa.cor) {
+                case "Branca":
+                    $("#branca").addClass("selected");
+                    $("#colorida").removeClass("selected");
+                    break;
+                case "Cor":
+                    $("#colorida").addClass("selected");
+                    $("#branca").removeClass("selected");
+                    
+                    break;
+                default:
+                    alert("A cor especificada não existe!");
+                    break;
+            }
+    
+            switch (parametros_pesquisa.gola) {
+                case "gola_v":
+                    $("#gola_v").addClass("selected");
+                    $("#gola_normal").removeClass("selected");                
+                    break;
+                case "gola_normal":
+                    $("#gola_normal").addClass("selected");
+                    $("#gola_v").removeClass("selected");
+                    break;
+                default:
+                    alert("A gola especificada não existe!");
+                    break;
+            }
+    
+            switch (parametros_pesquisa.qualidade) {
+                case "q150":
+                    $("#q150").addClass("selected");
+                    $("#q190").removeClass("selected");
+                    break;
+                case "q190":
+                    $("#q190").addClass("selected");
+                    $("#q150").removeClass("selected");
+                    break;
+                default:
+                    alert("A qualidade especificada não existe!");
+                    break;
+            }
+    
+            switch (parametros_pesquisa.estampa) {
+                case "com_estampa":
+                    $('#estampa').val("com_estampa");
+                    break;
+                case "sem_estampa":
+                    $('#estampa').val("sem_estampa");
+                    break;
+                default:
+                    break;
+            }  
+            
+            switch (parametros_pesquisa.embalagem) {
+                case "bulk":
+                    $('#embalagem').val("bulk");
+                    break;
+                case "unitaria":
+                    $('#embalagem').val("unitaria");
+                    break;
+                default:
+                    break;
+            }
+            AtualizarPrecoTela();
+        } else {
+            console.log(localStorage["ultimo_orcamento"]);
+        }
+    }
+    
 
     carregarPaginaUltimoOrcamento();
 
@@ -341,10 +343,13 @@ $(function(){
         var precoDesconto = valorTotal;
         if (valorTotal >= 1000) {
             precoDesconto = (precoDesconto * 0.85);
+            console.log("desconto 15%: " + precoDesconto);
         } else if (valorTotal < 1000 && valorTotal >= 500) {
             precoDesconto = (precoDesconto * 0.90);
+            console.log("desconto 10%: " + precoDesconto);
         } else if (valorTotal >= 100) {
             precoDesconto = (precoDesconto * 0.95);
+            console.log("desconto 5%: " + precoDesconto);
         } 
 
         return precoDesconto;
