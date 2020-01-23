@@ -3,50 +3,50 @@
 
 var camisetas = {
     'branca': {
-        
+
         'gola_v': {
             'sem_estampa': {
                 'preco_unit': 5.12,
-                'foto': 'v-white.jpg' 
+                'foto': 'v-white.jpg'
             },
             'com_estampa': {
                 'preco_unit': 8.95,
-                'foto': 'v-white-personalized.jpg' 
+                'foto': 'v-white-personalized.jpg'
             }
         },
-        
+
         'gola_normal': {
             'sem_estampa': {
                 'preco_unit': 4.99,
-                'foto': 'normal-white.jpg' 
+                'foto': 'normal-white.jpg'
             },
             'com_estampa': {
                 'preco_unit': 8.77,
-                'foto': 'normal-white-personalized.jpg' 
+                'foto': 'normal-white-personalized.jpg'
             }
         }
     },
-    
+
     'colorida': {
         'gola_v': {
             'sem_estampa': {
                 'preco_unit': 6.04,
-                'foto': 'v-color.jpg' 
+                'foto': 'v-color.jpg'
             },
             'com_estampa': {
                 'preco_unit': 9.47,
-                'foto': 'v-color-personalized.png' 
+                'foto': 'v-color-personalized.png'
             }
         },
-        
+
         'gola_normal': {
             'sem_estampa': {
                 'preco_unit': 5.35,
-                'foto': 'normal-color.jpg' 
+                'foto': 'normal-color.jpg'
             },
             'com_estampa': {
                 'preco_unit': 9.28,
-                'foto': 'normal-color-personalized.jpg' 
+                'foto': 'normal-color-personalized.jpg'
             }
         }
     }
@@ -56,12 +56,12 @@ var camisetas = {
 // parâmetros da pesquisa
 
 var parametros_pesquisa = {
-    "quantidade": 10,
-    "cor": "Cor",
+    "quantidade": 1000,
+    "cor": "colorida",
     "gola": "gola_v",
-    "qualidade": "q150",
-    "estampa": "sem_estampa",
-    "embalagem": "bulk"
+    "qualidade": "q190",
+    "estampa": "com_estampa",
+    "embalagem": "unitaria"
 }
 
 
@@ -74,9 +74,9 @@ var parametros_pesquisa = {
 // 3. A embalagem unitária tem um custo de 0.15 por unidade
 
 // 4. Após cálculo do preço, há que se aplicar um desconto por quantidade, sendo: 
-    // faixa 1: acima de 1.000 - Desconto de 15%
-    // faixa 2: acima de 500 - Desconto de 10%
-    // faixa 3: acima de 100 - Desconto de 5%
+// faixa 1: acima de 1.000 - Desconto de 15%
+// faixa 2: acima de 500 - Desconto de 10%
+// faixa 3: acima de 100 - Desconto de 5%
 
 
 
@@ -84,290 +84,143 @@ var parametros_pesquisa = {
 
 
 
-$(function(){
+$(function () {
 
-    var acrescimoCamisaAltaQualidade = 1.12;
-    var precoEmbalagamUnitaria = 0.15;
+    function atualizar_orcamento(parametros) {
+        $('.refresh-loader').show();
 
-    function carregarPaginaUltimoOrcamento() {
-        if (localStorage["ultimo_orcamento"])  {
-            console.log(localStorage["ultimo_orcamento"]);
-            parametros_pesquisa = JSON.parse(localStorage["ultimo_orcamento"]);
-            
-            $("#quantidade").val(parametros_pesquisa.quantidade);
-            $("#result_cor").text(parametros_pesquisa.cor);
-            $("#result_quantidade").text(parametros_pesquisa.quantidade);
-            $("#result_gola").text($("#" + parametros_pesquisa.gola).text());
-            $("#result_qualidade").text($("#" + parametros_pesquisa.qualidade).text());
-            $("#result_estampa").text($("#estampa").find(":selected").text());
-            $("#result_embalagem").text($("#embalagem").find(":selected").text());   
-    
-            switch (parametros_pesquisa.cor) {
-                case "Branca":
-                    $("#branca").addClass("selected");
-                    $("#colorida").removeClass("selected");
-                    break;
-                case "Cor":
-                    $("#colorida").addClass("selected");
-                    $("#branca").removeClass("selected");
-                    
-                    break;
-                default:
-                    alert("A cor especificada não existe!");
-                    break;
-            }
-    
-            switch (parametros_pesquisa.gola) {
-                case "gola_v":
-                    $("#gola_v").addClass("selected");
-                    $("#gola_normal").removeClass("selected");                
-                    break;
-                case "gola_normal":
-                    $("#gola_normal").addClass("selected");
-                    $("#gola_v").removeClass("selected");
-                    break;
-                default:
-                    alert("A gola especificada não existe!");
-                    break;
-            }
-    
-            switch (parametros_pesquisa.qualidade) {
-                case "q150":
-                    $("#q150").addClass("selected");
-                    $("#q190").removeClass("selected");
-                    break;
-                case "q190":
-                    $("#q190").addClass("selected");
-                    $("#q150").removeClass("selected");
-                    break;
-                default:
-                    alert("A qualidade especificada não existe!");
-                    break;
-            }
-    
-            switch (parametros_pesquisa.estampa) {
-                case "com_estampa":
-                    $('#estampa').val("com_estampa");
-                    break;
-                case "sem_estampa":
-                    $('#estampa').val("sem_estampa");
-                    break;
-                default:
-                    break;
-            }  
-            
-            switch (parametros_pesquisa.embalagem) {
-                case "bulk":
-                    $('#embalagem').val("bulk");
-                    break;
-                case "unitaria":
-                    $('#embalagem').val("unitaria");
-                    break;
-                default:
-                    break;
-            }
-            AtualizarPrecoTela();
-        } else {
-            console.log(localStorage["ultimo_orcamento"]);
+        var quantidade = parametros.quantidade;
+        var preco_unit = camisetas[parametros.cor][parametros.gola][parametros.estampa].preco_unit;
+        var foto = "img/" + camisetas[parametros.cor][parametros.gola][parametros.estampa].foto;
+
+        var valor_total = quantidade * preco_unit;
+
+        if (parametros.qualidade == "q190") {
+            valor_total *= 1.12;
         }
-    }
-    
 
-    carregarPaginaUltimoOrcamento();
+        if (parametros.embalagem == "unitaria") {
+            valor_total += (quantidade * 0.15);
+        }
+
+        if (quantidade >= 1000) {
+            valor_total *= 0.85;
+        } else if (quantidade >= 500) {
+            valor_total *= 0.9;
+        } else if (quantidade >= 100) {
+            valor_total *= 0.95;
+        }
+
+        window.setTimeout(function(){
+            var id_gola = "#" + parametros.gola;
+            $('#result_gola').html( $(id_gola).html() );
+            var id_estampa = "option[value='" + parametros.estampa + "']" ;
+            $('#result_estampa').html( $(id_estampa).html() );
+            var id_qualidade = "#" + parametros.qualidade;
+            $('#result_qualidade').html( $(id_qualidade).html() );
+            var id_embalagem = "option[value='" + parametros.embalagem + "']" ;
+            $('#result_embalagem').html( $(id_embalagem).html() );
+            
+            $('#result_quantidade').html( parametros.quantidade );  
+            var id_cor = "#" + parametros.cor;   
+            $('#result_cor').html( $(id_cor).html() );   
+            $('#valor-total').html(valor_total.toLocaleString('pt-br', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+            $('#foto-produto').attr('src', foto);
+    
+            console.log('parametros: ', parametros);
+            console.log('valor_total: ', valor_total); 
+    
+            $('.refresh-loader').hide();
+        }, 1000)
+
+
+    }
+
+    function atualizar_campos(parametros) {
+        //cor
+        $("#cor").children().removeClass("selected");
+        var id_cor = "#" + parametros.cor;
+        $(id_cor).addClass("selected");
+        //gola
+        $("#gola").children().removeClass("selected");
+        var id_gola = "#" + parametros.gola;
+        $(id_gola).addClass("selected");
+        //qualidade
+        $("#qualidade").children().removeClass("selected");
+        var id_qualidade = "#" + parametros.qualidade;
+        $(id_qualidade).addClass("selected");
+        //estampa
+        $("#estampa").val(parametros.estampa);
+        //embalagem
+        $("#embalagem").val(parametros.embalagem);
+        //quantidade
+        $("#quantidade").val(parametros.quantidade);
+    }
+
+    function atualizar_localStorage(parametros) {
+        window.localStorage.setItem("quantidade", parametros.quantidade);
+        window.localStorage.setItem("cor", parametros.cor);
+        window.localStorage.setItem("gola", parametros.gola);
+        window.localStorage.setItem("qualidade", parametros.qualidade);
+        window.localStorage.setItem("estampa", parametros.estampa);
+        window.localStorage.setItem("embalagem", parametros.embalagem);
+    }
+
+    $(".option-filter div").click(function() {
+        
+        $(this).parent().children("div").removeClass("selected");
+        $(this).addClass("selected");
+
+        var categoria = $(this).parent().attr('id');
+        parametros_pesquisa[categoria] = $(this).attr('id');
+        atualizar_localStorage(parametros_pesquisa);
+        atualizar_orcamento(parametros_pesquisa);
+    });
+
+    $("select").change(function() {
+
+        var parametros_select = $(this).attr('id');
+        parametros_pesquisa[parametros_select] = $(this).val();
+        atualizar_localStorage(parametros_pesquisa);
+        atualizar_orcamento(parametros_pesquisa);
+
+    });
 
     $("#quantidade").change(function(){
-        parametros_pesquisa.quantidade = $(this).val(); 
-        $("#result_quantidade").text(parametros_pesquisa.quantidade);
-        AtualizarPrecoTela();
-        console.log(parametros_pesquisa.quantidade);
+
+        var parametro_input = $(this).attr('id');
+        parametros_pesquisa[parametro_input] = $(this).val();
+        atualizar_localStorage(parametros_pesquisa);
+        atualizar_orcamento(parametros_pesquisa);
+
     });
 
-    $("#branca").click(function(){
-        parametros_pesquisa.cor = $(this).text(); 
-        $("#branca").addClass("selected");
-        $("#colorida").removeClass("selected");
-        $("#result_cor").text(parametros_pesquisa.cor);
-        AtualizarPrecoTela();
-        console.log(parametros_pesquisa.cor);
-    });
+    //ao carregar a pagina
 
-    $("#colorida").click(function(){
-        parametros_pesquisa.cor = $(this).text(); 
-        $("#colorida").addClass("selected");
-        $("#branca").removeClass("selected");
-        $("#result_cor").text(parametros_pesquisa.cor);
-        AtualizarPrecoTela();
-        console.log(parametros_pesquisa.cor);
-    });
-
-    $("#gola_v").click(function(){
-        parametros_pesquisa.gola = $(this).attr("id"); 
-        $("#gola_v").addClass("selected");
-        $("#gola_normal").removeClass("selected");
-        $("#result_gola").text($(this).text());
-        AtualizarPrecoTela();
-        console.log(parametros_pesquisa.gola);
-    });
-
-    $("#gola_normal").click(function(){
-        parametros_pesquisa.gola = $(this).attr("id"); 
-        $("#gola_normal").addClass("selected");
-        $("#gola_v").removeClass("selected");
-        $("#result_gola").text($(this).text());
-        AtualizarPrecoTela();
-        console.log(parametros_pesquisa.gola);
-    });
-
-    $("#q150").click(function(){
-        parametros_pesquisa.qualidade = $(this).attr("id"); 
-        $("#q150").addClass("selected");
-        $("#q190").removeClass("selected");
-        $("#result_qualidade").text($(this).text());
-        AtualizarPrecoTela();
-        console.log(parametros_pesquisa.qualidade);
-    });
-
-    $("#q190").click(function(){
-        parametros_pesquisa.qualidade = $(this).attr("id"); 
-        $("#q190").addClass("selected");
-        $("#q150").removeClass("selected");
-        $("#result_qualidade").text($(this).text());
-        AtualizarPrecoTela();
-        console.log(parametros_pesquisa.qualidade);
-    });
-
-    $("#estampa").change(function(){
-        parametros_pesquisa.estampa = $(this).val();  
-        $("#result_estampa").text($(this).find(":selected").text());
-        AtualizarPrecoTela();
-        console.log(parametros_pesquisa.estampa);
-    });
-
-    $("#embalagem").change(function(){
-        parametros_pesquisa.embalagem = $(this).val();
-        $("#result_embalagem").text($(this).find(":selected").text());   
-        AtualizarPrecoTela();   
-        console.log(parametros_pesquisa.embalagem);
-    });
-
-    // 1. Crie uma função para calcular o preço baseado nos parâmetros da variável "parametros_pesquisa" e solte o 
-    // valor no console para testar se está certo.
-    function RetornaPrecoUnitario() {
-        var precoCamiseta = 0;
-        switch (parametros_pesquisa.cor) {
-            case "Cor":
-                if (parametros_pesquisa.gola == 'gola_v') {
-                    if (parametros_pesquisa.estampa == 'com_estampa') {
-                        precoCamiseta = camisetas.colorida.gola_v.com_estampa.preco_unit;
-                    } else if (parametros_pesquisa.estampa == 'sem_estampa') {
-                        precoCamiseta = camisetas.colorida.gola_v.sem_estampa.preco_unit;
-                    }
-                } else if (parametros_pesquisa.gola == 'gola_normal') {
-                    if (parametros_pesquisa.colorida.gola_normal.com_estampa == 'com_estampa') {
-                        precoCamiseta = parametros_pesquisa.gola_normal.com_estampa.preco_unit;
-                    } else  if (parametros_pesquisa.colorida.gola_normal.sem_estampa == 'sem_estampa') {
-                        precoCamiseta = parametros_pesquisa.colorida.gola_normal.sem_estampa.preco_unit;
-                    }
-                }
-                break;
-            case "Branca":
-                    if (parametros_pesquisa.gola == 'gola_v') {
-                        if (parametros_pesquisa.estampa == 'com_estampa') {
-                            precoCamiseta = camisetas.branca.gola_v.com_estampa.preco_unit;
-                        } else if (parametros_pesquisa.estampa == 'sem_estampa') {
-                            precoCamiseta = camisetas.branca.gola_v.sem_estampa.preco_unit;
-                        }
-                    } else if (parametros_pesquisa.gola == 'gola_normal') {
-                        if (parametros_pesquisa.colorida.branca.com_estampa == 'com_estampa') {
-                            precoCamiseta = parametros_pesquisa.gola_normal.com_estampa.preco_unit;
-                        } else  if (parametros_pesquisa.colorida.gola_normal.sem_estampa == 'sem_estampa') {
-                            precoCamiseta = parametros_pesquisa.colorida.gola_normal.sem_estampa.preco_unit;
-                        }
-                    }
-                break;
-            default:
-                alert("Cor indisponível!"); 
-        }
-
-        window.localStorage.setItem("ultimo_orcamento", JSON.stringify(parametros_pesquisa));
-        window.localStorage.setItem("teste", "xxx");
-        return precoCamiseta;
-
+    if (window.localStorage["quantidade"]) {
+        parametros_pesquisa.quantidade = parseInt(window.localStorage["quantidade"]);
+    } 
+    if (window.localStorage["cor"]) {
+        parametros_pesquisa.cor = window.localStorage["cor"];
+    }
+    if (window.localStorage["qualidade"]) {
+        parametros_pesquisa.qualidade = window.localStorage["qualidade"];
+    }
+    if (window.localStorage["gola"]) {
+        parametros_pesquisa.gola = window.localStorage["gola"];
+    }
+    if (window.localStorage["estampa"]) {
+        parametros_pesquisa.estampa = window.localStorage["estampa"];
+    }
+    if (window.localStorage["embalagem"]) {
+        parametros_pesquisa.embalagem = window.localStorage["embalagem"];
     }
 
-    function CalcularPreco() {
-        var precoUnitario = RetornaPrecoUnitario();
-        $("#preco-unitario").text(precoUnitario.toFixed(2));
-        var preco = precoUnitario;
-        if (PodeCalcularPreco()) {
-            preco *= parametros_pesquisa.quantidade;
+    //verificar local storage e atualizar a variável parâmetros pesquisa
+    atualizar_campos(parametros_pesquisa);
+    atualizar_orcamento(parametros_pesquisa);
 
-            if (parametros_pesquisa.qualidade == 'q190') {
-                preco = (preco * acrescimoCamisaAltaQualidade);
-            }
-
-            preco += CalcularPrecoEmbalagemUnitaria();
-
-        } else {
-            preco = 0;
-        }        
-        return preco;
-    }
-
-    function CalcularPrecoEmbalagemUnitaria() {
-        var precoEmbalagem = 0;
-        if (parametros_pesquisa.embalagem == "unitaria") {
-            precoEmbalagem = parametros_pesquisa.quantidade * precoEmbalagamUnitaria;
-        }
-        $("#preco-embalagem").text(precoEmbalagem.toFixed(2));
-        return precoEmbalagem;
-    }
-
-    function PodeCalcularPreco() {
-        var temQuantidade = parametros_pesquisa.quantidade > 0;
-        var temPrecoUnitario = RetornaPrecoUnitario() > 0;
-        return temQuantidade && temPrecoUnitario;
-    }
-
-    function AtualizarPrecoTela() {
-        var precoTotal = CalcularPreco();
-        console.log("precoTotal: " + precoTotal);
-        var precoComDesconto = AplicarDesconto(precoTotal);
-        $("#valor-total").text(precoComDesconto.toFixed(2));
-    }
-
-    // faixa 1: acima de 1.000 - Desconto de 15%
-    // faixa 2: acima de 500 - Desconto de 10%
-    // faixa 3: acima de 100 - Desconto de 5%
-    function AplicarDesconto(valorTotal) {
-        var precoDesconto = valorTotal;
-        if (valorTotal >= 1000) {
-            precoDesconto = (precoDesconto * 0.85);
-            console.log("desconto 15%: " + precoDesconto);
-        } else if (valorTotal < 1000 && valorTotal >= 500) {
-            precoDesconto = (precoDesconto * 0.90);
-            console.log("desconto 10%: " + precoDesconto);
-        } else if (valorTotal >= 100) {
-            precoDesconto = (precoDesconto * 0.95);
-            console.log("desconto 5%: " + precoDesconto);
-        } 
-
-        return precoDesconto;
-    }
-
-    console.log(RetornaPrecoUnitario() );
-    console.log(CalcularPreco() );
-    
 });
-
-
-
-
-
-
-
-
-
 
 
 
@@ -379,7 +232,7 @@ $(function(){
     // valor no console para testar se está certo.
 
     // 2. Faça os eventos click e change para os filtros.
-    
+
         // a. Faça o evento click para os filtros do tipo botão (.option-filter). Sempre que houver um click, 
         // remova a classe "selected" dos botões do grupo e depois aplique-a apenas ao que foi clicado para
         // que ele fique azul.
@@ -389,7 +242,7 @@ $(function(){
         // c. Sempre que um dos eventos acima ocorrer, atualize a variável "parametros_pesquisa" e rode a função para 
         // calcular o preço
 
-    
+
     // 3. Altere a função do cálculo do preço. Em vez de soltar os valores no console, atualize as informações
     // nos elementos "result_", atualize o preço no elemento "valor-total" e mude o atributo "src" do elemento 
     // "foto-produto" para alterar a imagem mostrada (todas as imagens estão na pasta img).
