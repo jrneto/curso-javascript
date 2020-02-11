@@ -132,6 +132,25 @@ $(document).ready(function(){
     
      theUserNameSpace.imprimir_acessos();
 
+     function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+      
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+      
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+      
+          // And swap it with the current element.
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+      
+        return array;
+      }
+
      function pegar_pergunta(callback) {
         $.ajax({
             url : "https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple",
@@ -146,12 +165,55 @@ $(document).ready(function(){
         });
     }
 
+    $("#nova_pergunta").click(function(){
+        $("#opcoes").html("");
+        $("#erro_acerto").html("");
+        $("#pergunta").html("");
+        $("#nova_pergunta").hide("");
+        pegar_pergunta(gerar_pergunta);
+    });
+
     function gerar_pergunta(pergunta) {
+        $("#erro_acerto").hide();
         $("#pergunta").html(pergunta.question);
         var resposta_correta = pergunta.correct_answer;
         var respostas = pergunta.incorrect_answers;
+        respostas.push(resposta_correta);
+        respostas = shuffle(respostas); 
+        var respostasHtml = "";
+        for (var i = 0; i < respostas.length; i++) {
+            $("#opcoes").append('<input type="radio" name="opcao" value="' + respostas[i] + '"> ' + respostas[i] + '<br>');
+        } 
+
+        $("#opcoes input[name='opcao']").change(function(){
+            $("#submeter").show();
+        });
+
+        console.log("resposta correta: " + resposta_correta);
+        console.log("respostas: " + respostas);
+   
+
+        $("#submeter").click(function(){
+            var resposta_escolhida = $("#opcoes input[name='opcao']:checked").val();
+
+            if (resposta_escolhida == resposta_correta) {
+                $("#erro_acerto").html("<span style='color: green'; font-weight: bold;'>Parabéns, você acertou! A resposta é: " + resposta_correta + "</span>");
+            } else {
+                $("#erro_acerto").html("<span style='color: red'; font-weight: bold;'>Você errou! A resposta é: " + resposta_correta + "</span>");
+            }
+
+            $("#erro_acerto").show();
+
+            $("#opcoes input[name='opcao']").attr('disabled',true);
+
+            $("#nova_pergunta").show();          
+
+            $("#submeter").hide();
+        });
+
+        
     }
 
-    pegar_pergunta();
+    pegar_pergunta(gerar_pergunta);
      
 })
