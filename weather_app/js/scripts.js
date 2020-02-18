@@ -296,6 +296,13 @@ var tempDailyForeCasts = {
 };
 
     var accuWheatherAPIKey = "NMpI0JIUnrbyPCM02tA1pBLAlAaTNWvN";
+    var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+
+    function RetornarDiaSemana (strData){
+        var data = new Date(strData); 
+        var dia = data.getDay();
+        return semana[dia];
+    }
     
     function pegarTempoAtual(localCode) {
     
@@ -330,6 +337,7 @@ var tempDailyForeCasts = {
                 if(tempDailyForeCasts) //just an example
                 {
                     console.log(tempDailyForeCasts);
+                    carregarDailyForecastes(tempDailyForeCasts.DailyForecasts);
                     xhr.abort();
                 }
             },
@@ -340,6 +348,23 @@ var tempDailyForeCasts = {
                 console.log("Erro");
             }
         });
+    }
+
+    function carregarDailyForecastes(infoDias)
+    {
+        if (!infoDias || infoDias.length == 0) {
+            return;
+        }
+
+        $('#info_5dias > .day.col').each(function(index) { 
+            console.log(index);
+            var diaSemana = RetornarDiaSemana(infoDias[index].Date);
+            $(this).children('.day_inner').children('.dayname').html(diaSemana);
+            $(this).children('.day_inner').children('.max_min_temp').html(infoDias[index].Temperature.Minimum.Value + '&deg; / ' + infoDias[index].Temperature.Maximum.Value + '&deg;');
+        });
+ 
+
+        
     }
 
     function pegarLocalUsuario(lat, long) {
