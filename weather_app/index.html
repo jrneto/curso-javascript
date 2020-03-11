@@ -7,6 +7,7 @@
         <title>Weather App</title>
         <link rel="stylesheet" href="css/bootstrap-grid.min.css" />
         <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/highcharts.css" />
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600" rel="stylesheet">
         
     </head>
@@ -78,7 +79,12 @@
 
                             <div class="row">
                                 <div id="hourly_chart" class="hourly_chart col-sm-12">
-                                    Soltar gráfico hora a hora
+                                    <figure class="highcharts-figure">
+                                        <div id="container"></div>
+                                        <p class="highcharts-description">
+                                            
+                                        </p>
+                                    </figure>
                                 </div>
                             </div>
                         </div>
@@ -164,9 +170,13 @@
 
 
         <script src="js/vendor/jquery.js"></script>
-        <script src="js/scripts.js"></script>
         <script src="js/vendor/bootstrap.min.js"></script>
-       
+        <script src="js/vendor/highcharts.min.js"></script>
+        <script src="js/vendor/series-label.min.js"></script>
+        <script src="js/vendor/exporting.min.js"></script>
+        <script src="js/vendor/export-data.min.js"></script>
+        <script src="js/vendor/accessibility.min.js"></script>
+        <script src="js/scripts.js"></script>
     </body>
 
 </html>

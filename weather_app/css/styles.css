@@ -225,7 +225,7 @@ body.loading {
 #weatherinfo .results .weather_charts .hourly_chart {
     border: 1px solid lightgrey;
     width: 100%;
-    height: 400px;
+    height: 450px;
     margin-bottom: 12px;
 }
 

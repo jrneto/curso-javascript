@@ -277,6 +277,260 @@ var tempDailyForeCasts = {
     ]
 };
 
+var tempTwelveHoursForecasts = [
+    {
+        "DateTime": "2020-03-10T22:00:00-03:00",
+        "EpochDateTime": 1583888400,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 68.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 3,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=1&hbhhour=22&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=1&hbhhour=22&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-10T23:00:00-03:00",
+        "EpochDateTime": 1583892000,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 67.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 3,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=1&hbhhour=23&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=1&hbhhour=23&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T00:00:00-03:00",
+        "EpochDateTime": 1583895600,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 67.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 2,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=0&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=0&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T01:00:00-03:00",
+        "EpochDateTime": 1583899200,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 67.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=1&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=1&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T02:00:00-03:00",
+        "EpochDateTime": 1583902800,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 65.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=2&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=2&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T03:00:00-03:00",
+        "EpochDateTime": 1583906400,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 64.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=3&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=3&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T04:00:00-03:00",
+        "EpochDateTime": 1583910000,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 64.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=4&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=4&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T05:00:00-03:00",
+        "EpochDateTime": 1583913600,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 63.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=5&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=5&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T06:00:00-03:00",
+        "EpochDateTime": 1583917200,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 65.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=6&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=6&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T07:00:00-03:00",
+        "EpochDateTime": 1583920800,
+        "WeatherIcon": 3,
+        "IconPhrase": "Parcialmente ensolarado",
+        "HasPrecipitation": false,
+        "IsDaylight": true,
+        "Temperature": {
+            "Value": 66.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=7&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=7&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T08:00:00-03:00",
+        "EpochDateTime": 1583924400,
+        "WeatherIcon": 2,
+        "IconPhrase": "Predominantemente ensolarado",
+        "HasPrecipitation": false,
+        "IsDaylight": true,
+        "Temperature": {
+            "Value": 69.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=8&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=8&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-03-11T09:00:00-03:00",
+        "EpochDateTime": 1583928000,
+        "WeatherIcon": 2,
+        "IconPhrase": "Predominantemente ensolarado",
+        "HasPrecipitation": false,
+        "IsDaylight": true,
+        "Temperature": {
+            "Value": 72.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=9&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=9&lang=pt-br"
+    }
+];
+
+Highcharts.chart('container', {
+
+    title: {
+        text: 'Temperatura hora a hora'
+    },
+
+    subtitle: {
+        text: ''
+    },
+
+    yAxis: {
+        title: {
+            text: 'Temperatura'
+        }
+    },
+
+    xAxis: {
+        accessibility: {
+            rangeDescription: 'Horário'
+        }
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 22
+        }
+    },
+
+    series: [{
+        name: 'Temperaturas',
+        data: [20, 19, 18, 17, 16, 15, 14, 14, 13, 12, 12, 10]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'center'
+                }
+            }
+        }]
+    }
+
+});
+
     var accuWheatherAPIKey = "NMpI0JIUnrbyPCM02tA1pBLAlAaTNWvN";
     var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
 
@@ -348,8 +602,37 @@ var tempDailyForeCasts = {
             $(this).children('.day_inner').children('.max_min_temp').html(infoDias[index].Temperature.Minimum.Value + '&deg; / ' + infoDias[index].Temperature.Maximum.Value + '&deg;');
         });
  
+    }
 
-        
+    function obterPrevisaoProximos12Horas(localCode) {
+        $.ajax({
+            url: "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + localCode + "?apikey=" + accuWheatherAPIKey + "&language=pt-br",
+            type: "GET",
+            dataType: "json",
+            beforeSend : function(xhr, opts){
+                if(tempTwelveHoursForecasts) //just an example
+                {
+                    console.log(tempTwelveHoursForecasts); 
+                    gerarGrafico(tempTwelveHoursForecasts);
+                    xhr.abort();
+                }
+            },
+            success: function(data) {
+                console.log(data);  
+                gerarGrafico(data);      
+            },
+            error: function() {
+                console.log("Erro");
+            }
+        });
+    }
+
+    function gerarGrafico(dados) {
+        console.log("Início geração gráfico");
+        for (var i = 0; i < dados.length; i++ )
+        {
+            
+        }
     }
 
     function pegarLocalUsuario(lat, long) {
@@ -364,6 +647,7 @@ var tempDailyForeCasts = {
                     var localCode = tempCoordenadasIP.Key;
                     pegarTempoAtual(localCode); 
                     obterPrevisaoProximos5Dias(localCode);
+                    obterPrevisaoProximos12Horas(localCode); 
                     xhr.abort();
                 }
             },
@@ -372,7 +656,8 @@ var tempDailyForeCasts = {
                 $("#texto_local").html(data.LocalizedName + ", " + data.AdministrativeArea.LocalizedName + ", " + data.Country.LocalizedName);
                 var localCode = data.Key;
                 pegarTempoAtual(localCode);      
-                obterPrevisaoProximos5Dias(localCode);      
+                obterPrevisaoProximos5Dias(localCode);     
+                obterPrevisaoProximos12Horas(localCode); 
             },
             error: function() {
                 console.log("Erro");
