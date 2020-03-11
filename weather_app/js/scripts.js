@@ -108,189 +108,171 @@ var tempTempoAtual = [
 
 var tempDailyForeCasts = {
     "Headline": {
-        "EffectiveDate": "2020-02-17T13:00:00-03:00",
-        "EffectiveEpochDate": 1581955200,
-        "Severity": 5,
-        "Text": "Uma tempestade amanhã à tarde",
-        "Category": "thunderstorm",
-        "EndDate": "2020-02-17T19:00:00-03:00",
-        "EndEpochDate": 1581976800,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/extended-weather-forecast/45881?lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?lang=pt-br"
+        "EffectiveDate": "2020-03-14T07:00:00-03:00",
+        "EffectiveEpochDate": 1584180000,
+        "Severity": 4,
+        "Text": "Agradável Sábado",
+        "Category": "",
+        "EndDate": null,
+        "EndEpochDate": null,
+        "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/extended-weather-forecast/41461?lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?lang=pt-br"
     },
     "DailyForecasts": [
         {
-            "Date": "2020-02-16T07:00:00-03:00",
-            "EpochDate": 1581847200,
+            "Date": "2020-03-10T07:00:00-03:00",
+            "EpochDate": 1583834400,
             "Temperature": {
                 "Minimum": {
-                    "Value": 69.0,
+                    "Value": 65.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 86.0,
+                    "Value": 88.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 17,
-                "IconPhrase": "Parcialmente nublado, com tempestades",
-                "HasPrecipitation": true,
-                "PrecipitationType": "Rain",
-                "PrecipitationIntensity": "Light"
+                "Icon": 2,
+                "IconPhrase": "Predominantemente ensolarado",
+                "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 38,
-                "IconPhrase": "Predominantemente nublado",
+                "Icon": 33,
+                "IconPhrase": "Céu claro",
                 "HasPrecipitation": false
             },
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=1&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=1&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=1&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=1&lang=pt-br"
         },
         {
-            "Date": "2020-02-17T07:00:00-03:00",
-            "EpochDate": 1581933600,
+            "Date": "2020-03-11T07:00:00-03:00",
+            "EpochDate": 1583920800,
             "Temperature": {
                 "Minimum": {
-                    "Value": 70.0,
+                    "Value": 65.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 85.0,
+                    "Value": 88.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 15,
-                "IconPhrase": "Tempestades",
-                "HasPrecipitation": true,
-                "PrecipitationType": "Rain",
-                "PrecipitationIntensity": "Heavy"
+                "Icon": 2,
+                "IconPhrase": "Predominantemente ensolarado",
+                "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 42,
-                "IconPhrase": "Predominantemente nublado, com tempestades",
-                "HasPrecipitation": true,
-                "PrecipitationType": "Rain",
-                "PrecipitationIntensity": "Light"
+                "Icon": 33,
+                "IconPhrase": "Céu claro",
+                "HasPrecipitation": false
             },
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=2&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=2&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=2&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=2&lang=pt-br"
         },
         {
-            "Date": "2020-02-18T07:00:00-03:00",
-            "EpochDate": 1582020000,
+            "Date": "2020-03-12T07:00:00-03:00",
+            "EpochDate": 1584007200,
             "Temperature": {
                 "Minimum": {
-                    "Value": 70.0,
+                    "Value": 64.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 86.0,
+                    "Value": 88.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 4,
-                "IconPhrase": "Nuvens esparsas",
-                "HasPrecipitation": true,
-                "PrecipitationType": "Rain",
-                "PrecipitationIntensity": "Light"
+                "Icon": 2,
+                "IconPhrase": "Predominantemente ensolarado",
+                "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 42,
-                "IconPhrase": "Predominantemente nublado, com tempestades",
-                "HasPrecipitation": true,
-                "PrecipitationType": "Rain",
-                "PrecipitationIntensity": "Moderate"
+                "Icon": 33,
+                "IconPhrase": "Céu claro",
+                "HasPrecipitation": false
             },
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=3&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=3&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=3&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=3&lang=pt-br"
         },
         {
-            "Date": "2020-02-19T07:00:00-03:00",
-            "EpochDate": 1582106400,
+            "Date": "2020-03-13T07:00:00-03:00",
+            "EpochDate": 1584093600,
             "Temperature": {
                 "Minimum": {
-                    "Value": 69.0,
+                    "Value": 66.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 85.0,
+                    "Value": 88.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 6,
-                "IconPhrase": "Predominantemente nublado",
-                "HasPrecipitation": true,
-                "PrecipitationType": "Rain",
-                "PrecipitationIntensity": "Heavy"
+                "Icon": 3,
+                "IconPhrase": "Parcialmente ensolarado",
+                "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 36,
-                "IconPhrase": "Nuvens esparsas",
-                "HasPrecipitation": true,
-                "PrecipitationType": "Rain",
-                "PrecipitationIntensity": "Light"
+                "Icon": 35,
+                "IconPhrase": "Parcialmente nublado",
+                "HasPrecipitation": false
             },
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=4&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=4&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=4&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=4&lang=pt-br"
         },
         {
-            "Date": "2020-02-20T07:00:00-03:00",
-            "EpochDate": 1582192800,
+            "Date": "2020-03-14T07:00:00-03:00",
+            "EpochDate": 1584180000,
             "Temperature": {
                 "Minimum": {
-                    "Value": 69.0,
+                    "Value": 68.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 86.0,
+                    "Value": 90.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 6,
-                "IconPhrase": "Predominantemente nublado",
-                "HasPrecipitation": true,
-                "PrecipitationType": "Rain",
-                "PrecipitationIntensity": "Heavy"
+                "Icon": 3,
+                "IconPhrase": "Parcialmente ensolarado",
+                "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 7,
-                "IconPhrase": "Nublado",
-                "HasPrecipitation": true,
-                "PrecipitationType": "Rain",
-                "PrecipitationIntensity": "Light"
+                "Icon": 34,
+                "IconPhrase": "Predominantemente aberto",
+                "HasPrecipitation": false
             },
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=5&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/daily-weather-forecast/45881?day=5&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=5&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=5&lang=pt-br"
         }
     ]
 };
@@ -320,6 +302,8 @@ var tempDailyForeCasts = {
                 }
             },
             success: function(data) {
+                $("#texto_clima").html(data[0].WeatherText);
+                $("#texto_temperatura").html(data[0].Temperature.Metric.Value)
                 console.log(data);            
             },
             error: function() {
@@ -342,7 +326,8 @@ var tempDailyForeCasts = {
                 }
             },
             success: function(data) {
-                console.log(data);            
+                console.log(data);   
+                carregarDailyForecastes(data.DailyForecasts);         
             },
             error: function() {
                 console.log("Erro");
@@ -386,7 +371,8 @@ var tempDailyForeCasts = {
                 console.log(data);
                 $("#texto_local").html(data.LocalizedName + ", " + data.AdministrativeArea.LocalizedName + ", " + data.Country.LocalizedName);
                 var localCode = data.Key;
-                pegarTempoAtual(localCode);            
+                pegarTempoAtual(localCode);      
+                obterPrevisaoProximos5Dias(localCode);      
             },
             error: function() {
                 console.log("Erro");
