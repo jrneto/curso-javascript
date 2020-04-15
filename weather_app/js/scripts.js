@@ -1,4 +1,63 @@
 
+var graficoTemp = Highcharts.chart('container', {
+
+    title: {
+        text: 'Temperatura hora a hora'
+    },
+
+    subtitle: {
+        text: ''
+    },
+
+    yAxis: {
+        title: {
+            text: 'Temperatura'
+        }
+    },
+
+    xAxis: {
+        accessibility: {
+            rangeDescription: 'Horário'
+        }
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            pointStart: 22
+        }
+    },
+
+    series: [{
+        name: 'Temperaturas',
+        data: [20, 19, 18, 17, 16, 15, 14, 14, 13, 12, 12, 10]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'center'
+                }
+            }
+        }]
+    }
+
+});
+
 $(function(){
 
 
@@ -286,7 +345,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 68.0,
+            "Value": 20,
             "Unit": "F",
             "UnitType": 18
         },
@@ -302,7 +361,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 67.0,
+            "Value": 19,
             "Unit": "F",
             "UnitType": 18
         },
@@ -318,7 +377,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 67.0,
+            "Value": 18,
             "Unit": "F",
             "UnitType": 18
         },
@@ -334,7 +393,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 67.0,
+            "Value":19,
             "Unit": "F",
             "UnitType": 18
         },
@@ -350,7 +409,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 65.0,
+            "Value": 20,
             "Unit": "F",
             "UnitType": 18
         },
@@ -366,7 +425,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 64.0,
+            "Value": 21,
             "Unit": "F",
             "UnitType": 18
         },
@@ -382,7 +441,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 64.0,
+            "Value": 22,
             "Unit": "F",
             "UnitType": 18
         },
@@ -398,7 +457,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 63.0,
+            "Value": 21,
             "Unit": "F",
             "UnitType": 18
         },
@@ -414,7 +473,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 65.0,
+            "Value": 20,
             "Unit": "F",
             "UnitType": 18
         },
@@ -430,7 +489,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": true,
         "Temperature": {
-            "Value": 66.0,
+            "Value": 19,
             "Unit": "F",
             "UnitType": 18
         },
@@ -446,7 +505,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": true,
         "Temperature": {
-            "Value": 69.0,
+            "Value": 20,
             "Unit": "F",
             "UnitType": 18
         },
@@ -462,7 +521,7 @@ var tempTwelveHoursForecasts = [
         "HasPrecipitation": false,
         "IsDaylight": true,
         "Temperature": {
-            "Value": 72.0,
+            "Value": 21,
             "Unit": "F",
             "UnitType": 18
         },
@@ -472,64 +531,7 @@ var tempTwelveHoursForecasts = [
     }
 ];
 
-Highcharts.chart('container', {
 
-    title: {
-        text: 'Temperatura hora a hora'
-    },
-
-    subtitle: {
-        text: ''
-    },
-
-    yAxis: {
-        title: {
-            text: 'Temperatura'
-        }
-    },
-
-    xAxis: {
-        accessibility: {
-            rangeDescription: 'Horário'
-        }
-    },
-
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-
-    plotOptions: {
-        series: {
-            label: {
-                connectorAllowed: false
-            },
-            pointStart: 22
-        }
-    },
-
-    series: [{
-        name: 'Temperaturas',
-        data: [20, 19, 18, 17, 16, 15, 14, 14, 13, 12, 12, 10]
-    }],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'center'
-                }
-            }
-        }]
-    }
-
-});
 
     var accuWheatherAPIKey = "NMpI0JIUnrbyPCM02tA1pBLAlAaTNWvN";
     var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
@@ -629,10 +631,13 @@ Highcharts.chart('container', {
 
     function gerarGrafico(dados) {
         console.log("Início geração gráfico");
+        var novasTemps = [];
         for (var i = 0; i < dados.length; i++ )
         {
-            
+            novasTemps.push(dados[i].Temperature.Value);
         }
+        console.log(novasTemps);
+        graficoTemp.series[0].setData(novasTemps);
     }
 
     function pegarLocalUsuario(lat, long) {
