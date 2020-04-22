@@ -1,5 +1,5 @@
 
-var graficoTemp = Highcharts.chart('container', {
+var hichart = Highcharts.chart('container', {
 
     title: {
         text: 'Temperatura hora a hora'
@@ -140,55 +140,55 @@ var tempCoordenadasIP = {
 };
 
 var tempTempoAtual = [
-  {
-    "LocalObservationDateTime": "2020-02-16T10:20:00-03:00",
-    "EpochTime": 1581859200,
-    "WeatherText": "Predominantemente nublado",
-    "WeatherIcon": 6,
-    "HasPrecipitation": false,
-    "PrecipitationType": null,
-    "IsDayTime": true,
-    "Temperature": {
-      "Metric": {
-        "Value": 40.2,
-        "Unit": "C",
-        "UnitType": 17
-      },
-      "Imperial": {
-        "Value": 100,
-        "Unit": "F",
-        "UnitType": 18
-      }
-    },
-    "MobileLink": "http://m.accuweather.com/pt/br/vista-alegre-do-alto/41586/current-weather/41586?lang=pt-br",
-    "Link": "http://www.accuweather.com/pt/br/vista-alegre-do-alto/41586/current-weather/41586?lang=pt-br"
-  }
+    {
+        "LocalObservationDateTime": "2020-04-20T21:35:00-03:00",
+        "EpochTime": 1587429300,
+        "WeatherText": "Céu claro",
+        "WeatherIcon": 33,
+        "HasPrecipitation": false,
+        "PrecipitationType": null,
+        "IsDayTime": false,
+        "Temperature": {
+            "Metric": {
+                "Value": 19.8,
+                "Unit": "C",
+                "UnitType": 17
+            },
+            "Imperial": {
+                "Value": 68.0,
+                "Unit": "F",
+                "UnitType": 18
+            }
+        },
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/current-weather/36364?lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/current-weather/36364?lang=pt-br"
+    }
 ];
 
-var tempDailyForeCasts = {
+var tempDailyFiveDaysForeCasts = {
     "Headline": {
-        "EffectiveDate": "2020-03-14T07:00:00-03:00",
-        "EffectiveEpochDate": 1584180000,
-        "Severity": 4,
-        "Text": "Agradável Sábado",
+        "EffectiveDate": "2020-04-25T07:00:00-03:00",
+        "EffectiveEpochDate": 1587808800,
+        "Severity": 7,
+        "Text": "Este fim de semana será Ensolarado",
         "Category": "",
         "EndDate": null,
         "EndEpochDate": null,
-        "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/extended-weather-forecast/41461?lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/extended-weather-forecast/36364?lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?lang=pt-br"
     },
     "DailyForecasts": [
         {
-            "Date": "2020-03-10T07:00:00-03:00",
-            "EpochDate": 1583834400,
+            "Date": "2020-04-20T07:00:00-03:00",
+            "EpochDate": 1587376800,
             "Temperature": {
                 "Minimum": {
-                    "Value": 65.0,
+                    "Value": 58.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 88.0,
+                    "Value": 82.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
@@ -206,20 +206,20 @@ var tempDailyForeCasts = {
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=1&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=1&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=1&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=1&lang=pt-br"
         },
         {
-            "Date": "2020-03-11T07:00:00-03:00",
-            "EpochDate": 1583920800,
+            "Date": "2020-04-21T07:00:00-03:00",
+            "EpochDate": 1587463200,
             "Temperature": {
                 "Minimum": {
-                    "Value": 65.0,
+                    "Value": 57.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 88.0,
+                    "Value": 83.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
@@ -237,20 +237,20 @@ var tempDailyForeCasts = {
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=2&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=2&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=2&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=2&lang=pt-br"
         },
         {
-            "Date": "2020-03-12T07:00:00-03:00",
-            "EpochDate": 1584007200,
+            "Date": "2020-04-22T07:00:00-03:00",
+            "EpochDate": 1587549600,
             "Temperature": {
                 "Minimum": {
-                    "Value": 64.0,
+                    "Value": 57.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 88.0,
+                    "Value": 83.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
@@ -268,266 +268,266 @@ var tempDailyForeCasts = {
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=3&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=3&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=3&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=3&lang=pt-br"
         },
         {
-            "Date": "2020-03-13T07:00:00-03:00",
-            "EpochDate": 1584093600,
+            "Date": "2020-04-23T07:00:00-03:00",
+            "EpochDate": 1587636000,
             "Temperature": {
                 "Minimum": {
-                    "Value": 66.0,
+                    "Value": 59.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 88.0,
+                    "Value": 83.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 3,
-                "IconPhrase": "Parcialmente ensolarado",
+                "Icon": 2,
+                "IconPhrase": "Predominantemente ensolarado",
                 "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 35,
-                "IconPhrase": "Parcialmente nublado",
+                "Icon": 33,
+                "IconPhrase": "Céu claro",
                 "HasPrecipitation": false
             },
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=4&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=4&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=4&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=4&lang=pt-br"
         },
         {
-            "Date": "2020-03-14T07:00:00-03:00",
-            "EpochDate": 1584180000,
+            "Date": "2020-04-24T07:00:00-03:00",
+            "EpochDate": 1587722400,
             "Temperature": {
                 "Minimum": {
-                    "Value": 68.0,
+                    "Value": 60.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 90.0,
+                    "Value": 85.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 3,
-                "IconPhrase": "Parcialmente ensolarado",
+                "Icon": 1,
+                "IconPhrase": "Ensolarado",
                 "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 34,
-                "IconPhrase": "Predominantemente aberto",
+                "Icon": 33,
+                "IconPhrase": "Céu claro",
                 "HasPrecipitation": false
             },
             "Sources": [
                 "AccuWeather"
             ],
-            "MobileLink": "http://m.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=5&lang=pt-br",
-            "Link": "http://www.accuweather.com/pt/br/santa-barbara-doeste/41461/daily-weather-forecast/41461?day=5&lang=pt-br"
+            "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=5&lang=pt-br",
+            "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=5&lang=pt-br"
         }
     ]
 };
 
 var tempTwelveHoursForecasts = [
     {
-        "DateTime": "2020-03-10T22:00:00-03:00",
-        "EpochDateTime": 1583888400,
-        "WeatherIcon": 35,
-        "IconPhrase": "Parcialmente nublado",
+        "DateTime": "2020-04-20T22:00:00-03:00",
+        "EpochDateTime": 1587430800,
+        "WeatherIcon": 33,
+        "IconPhrase": "Céu claro",
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 20,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 3,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=1&hbhhour=22&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=1&hbhhour=22&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-03-10T23:00:00-03:00",
-        "EpochDateTime": 1583892000,
-        "WeatherIcon": 35,
-        "IconPhrase": "Parcialmente nublado",
-        "HasPrecipitation": false,
-        "IsDaylight": false,
-        "Temperature": {
-            "Value": 19,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 3,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=1&hbhhour=23&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=1&hbhhour=23&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-03-11T00:00:00-03:00",
-        "EpochDateTime": 1583895600,
-        "WeatherIcon": 35,
-        "IconPhrase": "Parcialmente nublado",
-        "HasPrecipitation": false,
-        "IsDaylight": false,
-        "Temperature": {
-            "Value": 18,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 2,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=0&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=0&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-03-11T01:00:00-03:00",
-        "EpochDateTime": 1583899200,
-        "WeatherIcon": 35,
-        "IconPhrase": "Parcialmente nublado",
-        "HasPrecipitation": false,
-        "IsDaylight": false,
-        "Temperature": {
-            "Value":19,
+            "Value": 66.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=1&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=1&lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=22&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=22&lang=pt-br"
     },
     {
-        "DateTime": "2020-03-11T02:00:00-03:00",
-        "EpochDateTime": 1583902800,
-        "WeatherIcon": 35,
-        "IconPhrase": "Parcialmente nublado",
+        "DateTime": "2020-04-20T23:00:00-03:00",
+        "EpochDateTime": 1587434400,
+        "WeatherIcon": 33,
+        "IconPhrase": "Céu claro",
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 20,
+            "Value": 65.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=2&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=2&lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=23&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=23&lang=pt-br"
     },
     {
-        "DateTime": "2020-03-11T03:00:00-03:00",
-        "EpochDateTime": 1583906400,
-        "WeatherIcon": 35,
-        "IconPhrase": "Parcialmente nublado",
+        "DateTime": "2020-04-21T00:00:00-03:00",
+        "EpochDateTime": 1587438000,
+        "WeatherIcon": 33,
+        "IconPhrase": "Céu claro",
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 21,
+            "Value": 64.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=3&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=3&lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=0&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=0&lang=pt-br"
     },
     {
-        "DateTime": "2020-03-11T04:00:00-03:00",
-        "EpochDateTime": 1583910000,
-        "WeatherIcon": 35,
-        "IconPhrase": "Parcialmente nublado",
+        "DateTime": "2020-04-21T01:00:00-03:00",
+        "EpochDateTime": 1587441600,
+        "WeatherIcon": 33,
+        "IconPhrase": "Céu claro",
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 22,
+            "Value": 63.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=4&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=4&lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=1&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=1&lang=pt-br"
     },
     {
-        "DateTime": "2020-03-11T05:00:00-03:00",
-        "EpochDateTime": 1583913600,
-        "WeatherIcon": 35,
-        "IconPhrase": "Parcialmente nublado",
+        "DateTime": "2020-04-21T02:00:00-03:00",
+        "EpochDateTime": 1587445200,
+        "WeatherIcon": 33,
+        "IconPhrase": "Céu claro",
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 21,
+            "Value": 62.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=5&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=5&lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=2&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=2&lang=pt-br"
     },
     {
-        "DateTime": "2020-03-11T06:00:00-03:00",
-        "EpochDateTime": 1583917200,
-        "WeatherIcon": 35,
-        "IconPhrase": "Parcialmente nublado",
+        "DateTime": "2020-04-21T03:00:00-03:00",
+        "EpochDateTime": 1587448800,
+        "WeatherIcon": 33,
+        "IconPhrase": "Céu claro",
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 20,
+            "Value": 61.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=6&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=6&lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=3&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=3&lang=pt-br"
     },
     {
-        "DateTime": "2020-03-11T07:00:00-03:00",
-        "EpochDateTime": 1583920800,
-        "WeatherIcon": 3,
-        "IconPhrase": "Parcialmente ensolarado",
+        "DateTime": "2020-04-21T04:00:00-03:00",
+        "EpochDateTime": 1587452400,
+        "WeatherIcon": 33,
+        "IconPhrase": "Céu claro",
         "HasPrecipitation": false,
-        "IsDaylight": true,
+        "IsDaylight": false,
         "Temperature": {
-            "Value": 19,
+            "Value": 60.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=7&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=7&lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=4&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=4&lang=pt-br"
     },
     {
-        "DateTime": "2020-03-11T08:00:00-03:00",
-        "EpochDateTime": 1583924400,
+        "DateTime": "2020-04-21T05:00:00-03:00",
+        "EpochDateTime": 1587456000,
+        "WeatherIcon": 33,
+        "IconPhrase": "Céu claro",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 59.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=5&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=5&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-04-21T06:00:00-03:00",
+        "EpochDateTime": 1587459600,
+        "WeatherIcon": 33,
+        "IconPhrase": "Céu claro",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 58.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=6&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=6&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-04-21T07:00:00-03:00",
+        "EpochDateTime": 1587463200,
         "WeatherIcon": 2,
         "IconPhrase": "Predominantemente ensolarado",
         "HasPrecipitation": false,
         "IsDaylight": true,
         "Temperature": {
-            "Value": 20,
+            "Value": 59.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=8&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=8&lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=7&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=7&lang=pt-br"
     },
     {
-        "DateTime": "2020-03-11T09:00:00-03:00",
-        "EpochDateTime": 1583928000,
+        "DateTime": "2020-04-21T08:00:00-03:00",
+        "EpochDateTime": 1587466800,
         "WeatherIcon": 2,
         "IconPhrase": "Predominantemente ensolarado",
         "HasPrecipitation": false,
         "IsDaylight": true,
         "Temperature": {
-            "Value": 21,
+            "Value": 63.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=9&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/sao-paulo/45881/hourly-weather-forecast/45881?day=2&hbhhour=9&lang=pt-br"
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=8&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=8&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-04-21T09:00:00-03:00",
+        "EpochDateTime": 1587470400,
+        "WeatherIcon": 2,
+        "IconPhrase": "Predominantemente ensolarado",
+        "HasPrecipitation": false,
+        "IsDaylight": true,
+        "Temperature": {
+            "Value": 67.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=9&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=9&lang=pt-br"
     }
 ];
 
@@ -540,6 +540,12 @@ var tempTwelveHoursForecasts = [
         var data = new Date(strData); 
         var dia = data.getDay();
         return semana[dia];
+    }
+
+    function RetornarHora (strData){
+        var data = new Date(strData); 
+        var hora = data.getHours();
+        return hora;
     }
     
     function pegarTempoAtual(localCode) {
@@ -574,10 +580,10 @@ var tempTwelveHoursForecasts = [
             type: "GET",
             dataType: "json",
             beforeSend : function(xhr, opts){
-                if(tempDailyForeCasts) //just an example
+                if(tempDailyFiveDaysForeCasts) //just an example
                 {
-                    console.log(tempDailyForeCasts);
-                    carregarDailyForecastes(tempDailyForeCasts.DailyForecasts);
+                    console.log(tempDailyFiveDaysForeCasts);
+                    carregarDailyForecastes(tempDailyFiveDaysForeCasts.DailyForecasts);
                     xhr.abort();
                 }
             },
@@ -637,7 +643,18 @@ var tempTwelveHoursForecasts = [
             novasTemps.push(dados[i].Temperature.Value);
         }
         console.log(novasTemps);
-        graficoTemp.series[0].setData(novasTemps);
+        console.log(dados[0].DateTime);
+        console.log(RetornarHora(dados[0].DateTime));
+        console.log(hichart);
+        //hichart.plotOptions.series.pointStart = RetornarHora(dados[0].DateTime); 
+        hichart.series[0].setData(novasTemps); 
+    }
+
+    function converteParaCelsius(tempF) {
+        if (!tempF) {
+            return 0;
+        }
+        return ((tempF - 32) * 5/9).toFixed();
     }
 
     function pegarLocalUsuario(lat, long) {
