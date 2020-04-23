@@ -60,15 +60,6 @@ var hichart = Highcharts.chart('container', {
 
 });
 
-var weatherObject = {
-    cidade : "",
-    estado: "",
-    pais: "",
-    Temperature: "",
-    texto_clima: "",
-    icone_clima: ""
-};
-
 $(function(){
 
 
@@ -565,25 +556,18 @@ var tempTwelveHoursForecasts = [
             url: "http://dataservice.accuweather.com/currentconditions/v1/" + localCode + "?apikey=" + accuWheatherAPIKey + "&language=pt-br",
             type: "GET",
             dataType: "json",
-            // beforeSend : function(xhr, opts){
-            //     if(tempTempoAtual) //just an example
-            //     {
-            //         $("#texto_clima").html(tempTempoAtual[0].WeatherText);
-            //         $("#texto_temperatura").html(tempTempoAtual[0].Temperature.Metric.Value)
-            //         console.log(tempTempoAtual);
-            //         xhr.abort();
-            //     }
-            // },
+            beforeSend : function(xhr, opts){
+                if(tempTempoAtual) //just an example
+                {
+                    $("#texto_clima").html(tempTempoAtual[0].WeatherText);
+                    $("#texto_temperatura").html(tempTempoAtual[0].Temperature.Metric.Value)
+                    console.log(tempTempoAtual);
+                    xhr.abort();
+                }
+            },
             success: function(data) {
-                // $("#texto_clima").html(data[0].WeatherText);
-                // $("#texto_temperatura").html(data[0].Temperature.Metric.Value)
-                weatherObject.temeperatura = data[0].Temperature.Metric.Value;
-                weatherObject.texto_clima = data[0].WeatherText;
-
-                var iconNumber = data[0].WeatherIcon <= 9 ? "0" + String(data[0].WeatherIcon) : String(data[0].WeatherIcon);
-
-                weatherObject.icone_clima = "https://developer.accuweather.com/sites/default/files/" + iconNumber + "-s.png";
-                preencherClimaAgora(weatherObject.cidade,weatherObject.estado,weatherObject.pais,weatherObject.temeperatura,weatherObject.texto_clima,weatherObject.icone_clima);
+                $("#texto_clima").html(data[0].WeatherText);
+                $("#texto_temperatura").html(data[0].Temperature.Metric.Value)
                 console.log(data);            
             },
             error: function() {
@@ -635,14 +619,14 @@ var tempTwelveHoursForecasts = [
             url: "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + localCode + "?apikey=" + accuWheatherAPIKey + "&language=pt-br",
             type: "GET",
             dataType: "json",
-            // beforeSend : function(xhr, opts){
-            //     if(tempTwelveHoursForecasts) //just an example
-            //     {
-            //         console.log(tempTwelveHoursForecasts); 
-            //         gerarGrafico(tempTwelveHoursForecasts);
-            //         xhr.abort();
-            //     }
-            // },
+            beforeSend : function(xhr, opts){
+                if(tempTwelveHoursForecasts) //just an example
+                {
+                    console.log(tempTwelveHoursForecasts); 
+                    gerarGrafico(tempTwelveHoursForecasts);
+                    xhr.abort();
+                }
+            },
             success: function(data) {
                 console.log(data);  
                 gerarGrafico(data);      
@@ -680,36 +664,24 @@ var tempTwelveHoursForecasts = [
             url: "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=" + accuWheatherAPIKey + "&q=" + lat + "%2C" + long + "&language=pt-br",
             type: "GET",
             dataType: "json",
-            // beforeSend : function(xhr, opts){
-            //     if(tempCoordenadasIP) //just an example
-            //     {
-            //         $("#texto_local").html(tempCoordenadasIP.LocalizedName + ", " + tempCoordenadasIP.AdministrativeArea.LocalizedName + ", " + tempCoordenadasIP.Country.LocalizedName);
-            //         var localCode = tempCoordenadasIP.Key;
-            //         pegarTempoAtual(localCode); 
-            //         obterPrevisaoProximos5Dias(localCode);
-            //         obterPrevisaoProximos12Horas(localCode); 
-            //         xhr.abort();
-            //     }
-            // },
+            beforeSend : function(xhr, opts){
+                if(tempCoordenadasIP) //just an example
+                {
+                    $("#texto_local").html(tempCoordenadasIP.LocalizedName + ", " + tempCoordenadasIP.AdministrativeArea.LocalizedName + ", " + tempCoordenadasIP.Country.LocalizedName);
+                    var localCode = tempCoordenadasIP.Key;
+                    pegarTempoAtual(localCode); 
+                    obterPrevisaoProximos5Dias(localCode);
+                    obterPrevisaoProximos12Horas(localCode); 
+                    xhr.abort();
+                }
+            },
             success: function(data) {
                 console.log(data);
-                // $("#texto_local").html(data.LocalizedName + ", " + data.AdministrativeArea.LocalizedName + ", " + data.Country.LocalizedName);
-                // var localCode = data.Key;
-                // pegarTempoAtual(localCode);      
-                // obterPrevisaoProximos5Dias(localCode);     
-                // obterPrevisaoProximos12Horas(localCode); 
-                
-                try {
-                    weatherObject.cidade = data.ParentCity.LocalizedName;;
-                } catch {
-                    weatherObject.cidade = data.LocalizedName;
-                } 
-               
-                weatherObject.estado = data.AdministrativeArea.LocalizedName;
-                weatherObject.pais = data.Country.LocalizedName;
-
+                $("#texto_local").html(data.LocalizedName + ", " + data.AdministrativeArea.LocalizedName + ", " + data.Country.LocalizedName);
                 var localCode = data.Key;
-                pegarTempoAtual(localCode);
+                pegarTempoAtual(localCode);      
+                obterPrevisaoProximos5Dias(localCode);     
+                obterPrevisaoProximos12Horas(localCode); 
             },
             error: function() {
                 console.log("Erro");
@@ -740,16 +712,5 @@ var tempTwelveHoursForecasts = [
         });
     }
 
-
-    function preencherClimaAgora(cidade,estado,pais,temperatura,texto_clima,icone_clima) {
-        var texto_local = cidade + ", " + estado + ", " + pais; 
-        $("#texto_local").text(texto_local);
-        $("#texto_clima").text(texto_clima);
-        $("#texto_temperatura").html( String(temperatura) + "&deg;");
-        $("#icone_clima").css("background-image", "url('" + weatherObject.icone_clima + "')");
-    }
-
     pegarCoordenadasdoIP();
-
-
 });
