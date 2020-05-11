@@ -597,14 +597,14 @@ var tempTwelveHoursForecasts = [
             url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + localCode + "?apikey=" + accuWheatherAPIKey + "&language=pt-br",
             type: "GET",
             dataType: "json",
-            beforeSend : function(xhr, opts){
-                if(tempDailyFiveDaysForeCasts) //just an example
-                {
-                    console.log(tempDailyFiveDaysForeCasts);
-                    carregarDailyForecastes(tempDailyFiveDaysForeCasts.DailyForecasts);
-                    xhr.abort();
-                }
-            },
+            // beforeSend : function(xhr, opts){
+            //     if(tempDailyFiveDaysForeCasts) //just an example
+            //     {
+            //         console.log(tempDailyFiveDaysForeCasts);
+            //         carregarDailyForecastes(tempDailyFiveDaysForeCasts.DailyForecasts);
+            //         xhr.abort();
+            //     }
+            // },
             success: function(data) {
                 console.log(data);   
                 carregarDailyForecastes(data.DailyForecasts);         
@@ -630,19 +630,29 @@ var tempTwelveHoursForecasts = [
  
     }
 
+    function pegarPrevisao5Dias(localCode) {
+        $.ajax({
+            url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + localCode + "?apikey=" + accuWheatherAPIKey + "&language=pt-br&metric=true",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                console.log("Five days: " , data);       
+                
+                $("#texto_max_min").html( String(data.DailyForecasts[0].Temperature.Minimum.Value) + "&deg; / " + String(data.DailyForecasts[0].Temperature.Maximum.Value) + "&deg; / ");
+            
+                preecherPrevisao5Dias(data.DailyForecasts);
+            },
+            error: function() {
+                console.log("Erro");
+            }
+        });
+    }
+
     function obterPrevisaoProximos12Horas(localCode) {
         $.ajax({
             url: "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + localCode + "?apikey=" + accuWheatherAPIKey + "&language=pt-br",
             type: "GET",
             dataType: "json",
-            // beforeSend : function(xhr, opts){
-            //     if(tempTwelveHoursForecasts) //just an example
-            //     {
-            //         console.log(tempTwelveHoursForecasts); 
-            //         gerarGrafico(tempTwelveHoursForecasts);
-            //         xhr.abort();
-            //     }
-            // },
             success: function(data) {
                 console.log(data);  
                 gerarGrafico(data);      
@@ -679,26 +689,9 @@ var tempTwelveHoursForecasts = [
         $.ajax({
             url: "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=" + accuWheatherAPIKey + "&q=" + lat + "%2C" + long + "&language=pt-br",
             type: "GET",
-            dataType: "json",
-            // beforeSend : function(xhr, opts){
-            //     if(tempCoordenadasIP) //just an example
-            //     {
-            //         $("#texto_local").html(tempCoordenadasIP.LocalizedName + ", " + tempCoordenadasIP.AdministrativeArea.LocalizedName + ", " + tempCoordenadasIP.Country.LocalizedName);
-            //         var localCode = tempCoordenadasIP.Key;
-            //         pegarTempoAtual(localCode); 
-            //         obterPrevisaoProximos5Dias(localCode);
-            //         obterPrevisaoProximos12Horas(localCode); 
-            //         xhr.abort();
-            //     }
-            // },
+            dataType: "json",           
             success: function(data) {
-                console.log(data);
-                // $("#texto_local").html(data.LocalizedName + ", " + data.AdministrativeArea.LocalizedName + ", " + data.Country.LocalizedName);
-                // var localCode = data.Key;
-                // pegarTempoAtual(localCode);      
-                // obterPrevisaoProximos5Dias(localCode);     
-                // obterPrevisaoProximos12Horas(localCode); 
-                
+                console.log(data); 
                 try {
                     weatherObject.cidade = data.ParentCity.LocalizedName;;
                 } catch {
@@ -710,6 +703,7 @@ var tempTwelveHoursForecasts = [
 
                 var localCode = data.Key;
                 pegarTempoAtual(localCode);
+                pegarPrevisao5Dias(localCode);
             },
             error: function() {
                 console.log("Erro");
