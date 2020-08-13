@@ -545,7 +545,7 @@ var tempTwelveHoursForecasts = [
 
 
     var accuWheatherAPIKey = "NMpI0JIUnrbyPCM02tA1pBLAlAaTNWvN";
-    var semana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+    
 
     function RetornarDiaSemana (strData){
         var data = new Date(strData); 
@@ -646,6 +646,41 @@ var tempTwelveHoursForecasts = [
                 console.log("Erro");
             }
         });
+    }
+
+    function preecherPrevisao5Dias(previsoes) {
+
+        $("#info_5dias").html("");
+
+        var diasSemana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+
+        for (var a = 0; a < previsoes.length ; a++) {
+
+            var dataHoje = new Date(previsoes[a].Date);
+
+            var dia_semana = diasSemana[ dataHoje.getDay() ];
+
+            var iconNumber = previsoes[a].Day.Icon <= 9 ? "0" + String(previsoes[a].Day.Icon) : String(previsoes[a].Day.Icon);
+
+            icone_clima = "https://developer.accuweather.com/sites/default/files/" + iconNumber + "-s.png";
+            maxima = String(previsoes[a].Temperature.Maximum.Value);
+            minima = String(previsoes[a].Temperature.Minimum.Value);
+
+            elementoHTMLDia = '<div class="day col">';
+            elementoHTMLDia += '<div class="day_inner">';
+            elementoHTMLDia +=     '<div class="dayname">';
+            elementoHTMLDia +=         dia_semana;
+            elementoHTMLDia +=     '</div>'; 
+            elementoHTMLDia +=     '<div style="background-image: url(\'' + icone_clima + '\')" class="daily_weather_icon"></div>';
+            elementoHTMLDia +=     '<div class="max_min_temp">';    
+            elementoHTMLDia +=         minima + '&deg; / ' + maxima +  '&deg;';
+            elementoHTMLDia +=     '</div>';
+            elementoHTMLDia += '</div>';
+
+            $("#info_5dias").append(elementoHTMLDia);
+
+            elementoHTMLDia = "";
+        }
     }
 
     function obterPrevisaoProximos12Horas(localCode) {
