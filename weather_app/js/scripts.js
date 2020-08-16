@@ -152,21 +152,21 @@ var tempCoordenadasIP = {
 
 var tempTempoAtual = [
     {
-        "LocalObservationDateTime": "2020-04-20T21:35:00-03:00",
-        "EpochTime": 1587429300,
-        "WeatherText": "Céu claro",
-        "WeatherIcon": 33,
+        "LocalObservationDateTime": "2020-08-13T19:35:00-03:00",
+        "EpochTime": 1597358100,
+        "WeatherText": "Algumas nuvens",
+        "WeatherIcon": 36,
         "HasPrecipitation": false,
         "PrecipitationType": null,
         "IsDayTime": false,
         "Temperature": {
             "Metric": {
-                "Value": 19.8,
+                "Value": 26.8,
                 "Unit": "C",
                 "UnitType": 17
             },
             "Imperial": {
-                "Value": 68.0,
+                "Value": 80.0,
                 "Unit": "F",
                 "UnitType": 18
             }
@@ -178,28 +178,28 @@ var tempTempoAtual = [
 
 var tempDailyFiveDaysForeCasts = {
     "Headline": {
-        "EffectiveDate": "2020-04-25T07:00:00-03:00",
-        "EffectiveEpochDate": 1587808800,
-        "Severity": 7,
-        "Text": "Este fim de semana será Ensolarado",
-        "Category": "",
-        "EndDate": null,
-        "EndEpochDate": null,
+        "EffectiveDate": "2020-08-17T01:00:00-03:00",
+        "EffectiveEpochDate": 1597636800,
+        "Severity": 2,
+        "Text": "Previsão de tempo chuvoso de domingo no fim da noite até Segunda-feira pela manhã",
+        "Category": "rain",
+        "EndDate": "2020-08-17T13:00:00-03:00",
+        "EndEpochDate": 1597680000,
         "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/extended-weather-forecast/36364?lang=pt-br",
         "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?lang=pt-br"
     },
     "DailyForecasts": [
         {
-            "Date": "2020-04-20T07:00:00-03:00",
-            "EpochDate": 1587376800,
+            "Date": "2020-08-13T07:00:00-03:00",
+            "EpochDate": 1597312800,
             "Temperature": {
                 "Minimum": {
-                    "Value": 58.0,
+                    "Value": 65.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 82.0,
+                    "Value": 90.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
@@ -210,8 +210,8 @@ var tempDailyFiveDaysForeCasts = {
                 "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 33,
-                "IconPhrase": "Céu claro",
+                "Icon": 34,
+                "IconPhrase": "Predominantemente aberto",
                 "HasPrecipitation": false
             },
             "Sources": [
@@ -221,28 +221,28 @@ var tempDailyFiveDaysForeCasts = {
             "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=1&lang=pt-br"
         },
         {
-            "Date": "2020-04-21T07:00:00-03:00",
-            "EpochDate": 1587463200,
+            "Date": "2020-08-14T07:00:00-03:00",
+            "EpochDate": 1597399200,
             "Temperature": {
                 "Minimum": {
-                    "Value": 57.0,
+                    "Value": 70.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 83.0,
+                    "Value": 89.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 2,
-                "IconPhrase": "Predominantemente ensolarado",
+                "Icon": 3,
+                "IconPhrase": "Parcialmente ensolarado",
                 "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 33,
-                "IconPhrase": "Céu claro",
+                "Icon": 34,
+                "IconPhrase": "Predominantemente aberto",
                 "HasPrecipitation": false
             },
             "Sources": [
@@ -252,28 +252,28 @@ var tempDailyFiveDaysForeCasts = {
             "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=2&lang=pt-br"
         },
         {
-            "Date": "2020-04-22T07:00:00-03:00",
-            "EpochDate": 1587549600,
+            "Date": "2020-08-15T07:00:00-03:00",
+            "EpochDate": 1597485600,
             "Temperature": {
                 "Minimum": {
-                    "Value": 57.0,
+                    "Value": 67.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 83.0,
+                    "Value": 91.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 2,
-                "IconPhrase": "Predominantemente ensolarado",
+                "Icon": 3,
+                "IconPhrase": "Parcialmente ensolarado",
                 "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 33,
-                "IconPhrase": "Céu claro",
+                "Icon": 36,
+                "IconPhrase": "Nuvens esparsas",
                 "HasPrecipitation": false
             },
             "Sources": [
@@ -283,29 +283,31 @@ var tempDailyFiveDaysForeCasts = {
             "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=3&lang=pt-br"
         },
         {
-            "Date": "2020-04-23T07:00:00-03:00",
-            "EpochDate": 1587636000,
+            "Date": "2020-08-16T07:00:00-03:00",
+            "EpochDate": 1597572000,
             "Temperature": {
                 "Minimum": {
-                    "Value": 59.0,
+                    "Value": 65.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 83.0,
+                    "Value": 81.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 2,
-                "IconPhrase": "Predominantemente ensolarado",
+                "Icon": 6,
+                "IconPhrase": "Predominantemente nublado",
                 "HasPrecipitation": false
             },
             "Night": {
-                "Icon": 33,
-                "IconPhrase": "Céu claro",
-                "HasPrecipitation": false
+                "Icon": 12,
+                "IconPhrase": "Pancadas de chuva",
+                "HasPrecipitation": true,
+                "PrecipitationType": "Rain",
+                "PrecipitationIntensity": "Light"
             },
             "Sources": [
                 "AccuWeather"
@@ -314,29 +316,33 @@ var tempDailyFiveDaysForeCasts = {
             "Link": "http://www.accuweather.com/pt/br/americana/36364/daily-weather-forecast/36364?day=4&lang=pt-br"
         },
         {
-            "Date": "2020-04-24T07:00:00-03:00",
-            "EpochDate": 1587722400,
+            "Date": "2020-08-17T07:00:00-03:00",
+            "EpochDate": 1597658400,
             "Temperature": {
                 "Minimum": {
-                    "Value": 60.0,
+                    "Value": 64.0,
                     "Unit": "F",
                     "UnitType": 18
                 },
                 "Maximum": {
-                    "Value": 85.0,
+                    "Value": 74.0,
                     "Unit": "F",
                     "UnitType": 18
                 }
             },
             "Day": {
-                "Icon": 1,
-                "IconPhrase": "Ensolarado",
-                "HasPrecipitation": false
+                "Icon": 12,
+                "IconPhrase": "Pancadas de chuva",
+                "HasPrecipitation": true,
+                "PrecipitationType": "Rain",
+                "PrecipitationIntensity": "Light"
             },
             "Night": {
-                "Icon": 33,
-                "IconPhrase": "Céu claro",
-                "HasPrecipitation": false
+                "Icon": 12,
+                "IconPhrase": "Pancadas de chuva",
+                "HasPrecipitation": true,
+                "PrecipitationType": "Rain",
+                "PrecipitationIntensity": "Light"
             },
             "Sources": [
                 "AccuWeather"
@@ -349,14 +355,46 @@ var tempDailyFiveDaysForeCasts = {
 
 var tempTwelveHoursForecasts = [
     {
-        "DateTime": "2020-04-20T22:00:00-03:00",
-        "EpochDateTime": 1587430800,
-        "WeatherIcon": 33,
-        "IconPhrase": "Céu claro",
+        "DateTime": "2020-08-13T20:00:00-03:00",
+        "EpochDateTime": 1597359600,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 66.0,
+            "Value": 78.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=20&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=20&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-08-13T21:00:00-03:00",
+        "EpochDateTime": 1597363200,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 77.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=21&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=21&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-08-13T22:00:00-03:00",
+        "EpochDateTime": 1597366800,
+        "WeatherIcon": 35,
+        "IconPhrase": "Parcialmente nublado",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 75.0,
             "Unit": "F",
             "UnitType": 18
         },
@@ -365,8 +403,104 @@ var tempTwelveHoursForecasts = [
         "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=22&lang=pt-br"
     },
     {
-        "DateTime": "2020-04-20T23:00:00-03:00",
-        "EpochDateTime": 1587434400,
+        "DateTime": "2020-08-13T23:00:00-03:00",
+        "EpochDateTime": 1597370400,
+        "WeatherIcon": 34,
+        "IconPhrase": "Predominantemente aberto",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 74.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=23&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=23&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-08-14T00:00:00-03:00",
+        "EpochDateTime": 1597374000,
+        "WeatherIcon": 34,
+        "IconPhrase": "Predominantemente aberto",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 72.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=0&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=0&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-08-14T01:00:00-03:00",
+        "EpochDateTime": 1597377600,
+        "WeatherIcon": 34,
+        "IconPhrase": "Predominantemente aberto",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 71.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=1&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=1&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-08-14T02:00:00-03:00",
+        "EpochDateTime": 1597381200,
+        "WeatherIcon": 34,
+        "IconPhrase": "Predominantemente aberto",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 71.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=2&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=2&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-08-14T03:00:00-03:00",
+        "EpochDateTime": 1597384800,
+        "WeatherIcon": 34,
+        "IconPhrase": "Predominantemente aberto",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 70.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=3&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=3&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-08-14T04:00:00-03:00",
+        "EpochDateTime": 1597388400,
+        "WeatherIcon": 34,
+        "IconPhrase": "Predominantemente aberto",
+        "HasPrecipitation": false,
+        "IsDaylight": false,
+        "Temperature": {
+            "Value": 69.0,
+            "Unit": "F",
+            "UnitType": 18
+        },
+        "PrecipitationProbability": 0,
+        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=4&lang=pt-br",
+        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=4&lang=pt-br"
+    },
+    {
+        "DateTime": "2020-08-14T05:00:00-03:00",
+        "EpochDateTime": 1597392000,
         "WeatherIcon": 33,
         "IconPhrase": "Céu claro",
         "HasPrecipitation": false,
@@ -377,114 +511,18 @@ var tempTwelveHoursForecasts = [
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=23&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=1&hbhhour=23&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-04-21T00:00:00-03:00",
-        "EpochDateTime": 1587438000,
-        "WeatherIcon": 33,
-        "IconPhrase": "Céu claro",
-        "HasPrecipitation": false,
-        "IsDaylight": false,
-        "Temperature": {
-            "Value": 64.0,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=0&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=0&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-04-21T01:00:00-03:00",
-        "EpochDateTime": 1587441600,
-        "WeatherIcon": 33,
-        "IconPhrase": "Céu claro",
-        "HasPrecipitation": false,
-        "IsDaylight": false,
-        "Temperature": {
-            "Value": 63.0,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=1&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=1&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-04-21T02:00:00-03:00",
-        "EpochDateTime": 1587445200,
-        "WeatherIcon": 33,
-        "IconPhrase": "Céu claro",
-        "HasPrecipitation": false,
-        "IsDaylight": false,
-        "Temperature": {
-            "Value": 62.0,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=2&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=2&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-04-21T03:00:00-03:00",
-        "EpochDateTime": 1587448800,
-        "WeatherIcon": 33,
-        "IconPhrase": "Céu claro",
-        "HasPrecipitation": false,
-        "IsDaylight": false,
-        "Temperature": {
-            "Value": 61.0,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=3&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=3&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-04-21T04:00:00-03:00",
-        "EpochDateTime": 1587452400,
-        "WeatherIcon": 33,
-        "IconPhrase": "Céu claro",
-        "HasPrecipitation": false,
-        "IsDaylight": false,
-        "Temperature": {
-            "Value": 60.0,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=4&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=4&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-04-21T05:00:00-03:00",
-        "EpochDateTime": 1587456000,
-        "WeatherIcon": 33,
-        "IconPhrase": "Céu claro",
-        "HasPrecipitation": false,
-        "IsDaylight": false,
-        "Temperature": {
-            "Value": 59.0,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 0,
         "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=5&lang=pt-br",
         "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=5&lang=pt-br"
     },
     {
-        "DateTime": "2020-04-21T06:00:00-03:00",
-        "EpochDateTime": 1587459600,
+        "DateTime": "2020-08-14T06:00:00-03:00",
+        "EpochDateTime": 1597395600,
         "WeatherIcon": 33,
         "IconPhrase": "Céu claro",
         "HasPrecipitation": false,
         "IsDaylight": false,
         "Temperature": {
-            "Value": 58.0,
+            "Value": 67.0,
             "Unit": "F",
             "UnitType": 18
         },
@@ -493,52 +531,20 @@ var tempTwelveHoursForecasts = [
         "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=6&lang=pt-br"
     },
     {
-        "DateTime": "2020-04-21T07:00:00-03:00",
-        "EpochDateTime": 1587463200,
+        "DateTime": "2020-08-14T07:00:00-03:00",
+        "EpochDateTime": 1597399200,
         "WeatherIcon": 2,
         "IconPhrase": "Predominantemente ensolarado",
         "HasPrecipitation": false,
         "IsDaylight": true,
         "Temperature": {
-            "Value": 59.0,
+            "Value": 68.0,
             "Unit": "F",
             "UnitType": 18
         },
         "PrecipitationProbability": 0,
         "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=7&lang=pt-br",
         "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=7&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-04-21T08:00:00-03:00",
-        "EpochDateTime": 1587466800,
-        "WeatherIcon": 2,
-        "IconPhrase": "Predominantemente ensolarado",
-        "HasPrecipitation": false,
-        "IsDaylight": true,
-        "Temperature": {
-            "Value": 63.0,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=8&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=8&lang=pt-br"
-    },
-    {
-        "DateTime": "2020-04-21T09:00:00-03:00",
-        "EpochDateTime": 1587470400,
-        "WeatherIcon": 2,
-        "IconPhrase": "Predominantemente ensolarado",
-        "HasPrecipitation": false,
-        "IsDaylight": true,
-        "Temperature": {
-            "Value": 67.0,
-            "Unit": "F",
-            "UnitType": 18
-        },
-        "PrecipitationProbability": 0,
-        "MobileLink": "http://m.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=9&lang=pt-br",
-        "Link": "http://www.accuweather.com/pt/br/americana/36364/hourly-weather-forecast/36364?day=2&hbhhour=9&lang=pt-br"
     }
 ];
 
@@ -552,12 +558,6 @@ var tempTwelveHoursForecasts = [
         var dia = data.getDay();
         return semana[dia];
     }
-
-    function RetornarHora (strData){
-        var data = new Date(strData); 
-        var hora = data.getHours();
-        return hora;
-    }
     
     function pegarTempoAtual(localCode) {
     
@@ -566,14 +566,14 @@ var tempTwelveHoursForecasts = [
             type: "GET",
             dataType: "json",
             // beforeSend : function(xhr, opts){
-            //     if(tempTempoAtual) //just an example
-            //     {
-            //         $("#texto_clima").html(tempTempoAtual[0].WeatherText);
-            //         $("#texto_temperatura").html(tempTempoAtual[0].Temperature.Metric.Value)
-            //         console.log(tempTempoAtual);
-            //         xhr.abort();
-            //     }
-            // },
+            //      if(tempTempoAtual) //just an example
+            //      {
+            //          $("#texto_clima").html(tempTempoAtual[0].WeatherText);
+            //          $("#texto_temperatura").html(tempTempoAtual[0].Temperature.Metric.Value)
+            //          console.log(tempTempoAtual);
+            //          xhr.abort();
+            //      }
+            //  },
             success: function(data) {
                 // $("#texto_clima").html(data[0].WeatherText);
                 // $("#texto_temperatura").html(data[0].Temperature.Metric.Value)
@@ -592,43 +592,6 @@ var tempTwelveHoursForecasts = [
         });
     }
 
-    function obterPrevisaoProximos5Dias(localCode) {
-        $.ajax({
-            url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + localCode + "?apikey=" + accuWheatherAPIKey + "&language=pt-br",
-            type: "GET",
-            dataType: "json",
-            // beforeSend : function(xhr, opts){
-            //     if(tempDailyFiveDaysForeCasts) //just an example
-            //     {
-            //         console.log(tempDailyFiveDaysForeCasts);
-            //         carregarDailyForecastes(tempDailyFiveDaysForeCasts.DailyForecasts);
-            //         xhr.abort();
-            //     }
-            // },
-            success: function(data) {
-                console.log(data);   
-                carregarDailyForecastes(data.DailyForecasts);         
-            },
-            error: function() {
-                console.log("Erro");
-            }
-        });
-    }
-
-    function carregarDailyForecastes(infoDias)
-    {
-        if (!infoDias || infoDias.length == 0) {
-            return;
-        }
-
-        $('#info_5dias > .day.col').each(function(index) { 
-            console.log(index);
-            var diaSemana = RetornarDiaSemana(infoDias[index].Date);
-            $(this).children('.day_inner').children('.dayname').html(diaSemana);
-            $(this).children('.day_inner').children('.max_min_temp').html(infoDias[index].Temperature.Minimum.Value + '&deg; / ' + infoDias[index].Temperature.Maximum.Value + '&deg;');
-        });
- 
-    }
 
     function pegarPrevisao5Dias(localCode) {
         $.ajax({
@@ -683,14 +646,98 @@ var tempTwelveHoursForecasts = [
         }
     }
 
-    function obterPrevisaoProximos12Horas(localCode) {
+    function gerarGraficoTeste() {
+        Highcharts.chart('container', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Monthly Average Temperature'
+            },
+            subtitle: {
+                text: 'Source: WorldClimate.com'
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Temperature (°C)'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Tokyo',
+                data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            }, {
+                name: 'London',
+                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }]
+        });
+    }
+
+
+    function gerarGrafico(horas, temperaturas) {
+        Highcharts.chart('hourly_chart', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Temperatura hora a hora'
+            },
+            xAxis: {
+                categories: horas
+            },
+            yAxis: {
+                title: {
+                    text: 'Temperatura (°C)'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                showInLegend: false,
+                data: temperaturas
+            }]
+        });
+    }
+ 
+
+    function pegarPrevisaoHoraAHora(localCode) {
         $.ajax({
-            url: "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + localCode + "?apikey=" + accuWheatherAPIKey + "&language=pt-br",
+            url: "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/" + localCode + "?apikey=" + accuWheatherAPIKey + "&language=pt-br&metric=true",
             type: "GET",
             dataType: "json",
             success: function(data) {
-                console.log(data);  
-                gerarGrafico(data);      
+                console.log('hourly forecast: ', data);  
+                
+                var horarios = [];
+                var temperaturas = [];
+
+                for (var a = 0; a < data.length; a++) {
+                    
+                    var hora = new Date( data[a].DateTime ).getHours();
+
+                    horarios.push( String(hora) + 'h' );
+                    temperaturas.push( data[a].Temperature.Value ); 
+                    
+                }
+                //gerarGraficoTeste();
+                gerarGrafico(horarios, temperaturas);
+
             },
             error: function() {
                 console.log("Erro");
@@ -698,28 +745,7 @@ var tempTwelveHoursForecasts = [
         });
     }
 
-    function gerarGrafico(dados) {
-        console.log("Início geração gráfico");
-        var novasTemps = [];
-        for (var i = 0; i < dados.length; i++ )
-        {
-            novasTemps.push(dados[i].Temperature.Value);
-        }
-        console.log(novasTemps);
-        console.log(dados[0].DateTime);
-        console.log(RetornarHora(dados[0].DateTime));
-        console.log(hichart);
-        //hichart.plotOptions.series.pointStart = RetornarHora(dados[0].DateTime); 
-        hichart.series[0].setData(novasTemps); 
-    }
-
-    function converteParaCelsius(tempF) {
-        if (!tempF) {
-            return 0;
-        }
-        return ((tempF - 32) * 5/9).toFixed();
-    }
-
+    
     function pegarLocalUsuario(lat, long) {
         $.ajax({
             url: "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=" + accuWheatherAPIKey + "&q=" + lat + "%2C" + long + "&language=pt-br",
@@ -739,6 +765,7 @@ var tempTwelveHoursForecasts = [
                 var localCode = data.Key;
                 pegarTempoAtual(localCode);
                 pegarPrevisao5Dias(localCode);
+                pegarPrevisaoHoraAHora(localCode);
             },
             error: function() {
                 console.log("Erro");
