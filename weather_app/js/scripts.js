@@ -79,6 +79,9 @@ $(function(){
 // pegar coordenadas geográficas pelo nome da cidade: https://docs.mapbox.com/api/
 // pegar coordenadas do IP: http://www.geoplugin.net
 // gerar gráficos em JS: https://www.highcharts.com/demo
+//Obter latitude logintude geolocalizacao
+//https://account.mapbox.com/
+//login: email/senha
 
 var tempCoordenadasIP = {
 	"Version": 1,
@@ -551,6 +554,7 @@ var tempTwelveHoursForecasts = [
 
 
     var accuWheatherAPIKey = "NMpI0JIUnrbyPCM02tA1pBLAlAaTNWvN";
+    var mapboxToken = "pk.eyJ1Ijoiam9zZXJlYXRvIiwiYSI6ImNrZHhwajc1eDFhOWYyem5zaDIzdG12M24ifQ.hzWrcQhV0YxStaTFKvGw-A";
     
 
     function RetornarDiaSemana (strData){
@@ -558,6 +562,23 @@ var tempTwelveHoursForecasts = [
         var dia = data.getDay();
         return semana[dia];
     }
+
+    function gerarErro(mensagem) {
+
+        if (!mensagem) {
+            mensagem = "Erro na solicitação!";
+        }
+
+        $('.refresh-loader').hide();
+        $("#aviso-erro").text(mensagem);
+        $("#aviso-erro").slideDown();
+        window.setTimeout(function(){
+            $("#aviso-erro").slideUp();
+        },4000);
+
+    }
+
+    
     
     function pegarTempoAtual(localCode) {
     
@@ -575,8 +596,7 @@ var tempTwelveHoursForecasts = [
             //      }
             //  },
             success: function(data) {
-                // $("#texto_clima").html(data[0].WeatherText);
-                // $("#texto_temperatura").html(data[0].Temperature.Metric.Value)
+
                 weatherObject.temeperatura = data[0].Temperature.Metric.Value;
                 weatherObject.texto_clima = data[0].WeatherText;
 
@@ -588,6 +608,7 @@ var tempTwelveHoursForecasts = [
             },
             error: function() {
                 console.log("Erro");
+                gerarErro("Erro ao obter clima atual");
             }
         });
     }
@@ -599,7 +620,7 @@ var tempTwelveHoursForecasts = [
             type: "GET",
             dataType: "json",
             success: function(data) {
-                console.log("Five days: " , data);       
+                //console.log("Five days: " , data);       
                 
                 $("#texto_max_min").html( String(data.DailyForecasts[0].Temperature.Minimum.Value) + "&deg; / " + String(data.DailyForecasts[0].Temperature.Maximum.Value) + "&deg; / ");
             
@@ -607,6 +628,31 @@ var tempTwelveHoursForecasts = [
             },
             error: function() {
                 console.log("Erro");
+                gerarErro("Erro ao obter previsão 5 dias");
+            }
+        });
+    }
+
+    function pegarCoordenadasDaPesquisa(input) {
+        input = encodeURI(input);
+        $.ajax({
+            url: "https://api.mapbox.com/geocoding/v5/mapbox.places/" + input +".json?access_token=" + mapboxToken,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                //console.log("mapbox: " , data);       
+                try {
+
+                    var long = data.features[0].geometry.coordinates[0];
+                    var lat = data.features[0].geometry.coordinates[1];
+                    pegarLocalUsuario(lat, long);
+                } catch {
+                    gerarErro("Erro ao pegar coordenadas da pesquisa");
+                }
+            },
+            error: function() {
+                console.log("Erro");
+                gerarErro("Erro ao pegar coordenadas da pesquisa");
             }
         });
     }
@@ -644,43 +690,6 @@ var tempTwelveHoursForecasts = [
 
             elementoHTMLDia = "";
         }
-    }
-
-    function gerarGraficoTeste() {
-        Highcharts.chart('container', {
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Monthly Average Temperature'
-            },
-            subtitle: {
-                text: 'Source: WorldClimate.com'
-            },
-            xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            yAxis: {
-                title: {
-                    text: 'Temperature (°C)'
-                }
-            },
-            plotOptions: {
-                line: {
-                    dataLabels: {
-                        enabled: true
-                    },
-                    enableMouseTracking: false
-                }
-            },
-            series: [{
-                name: 'Tokyo',
-                data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            }, {
-                name: 'London',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-            }]
-        });
     }
 
 
@@ -722,7 +731,7 @@ var tempTwelveHoursForecasts = [
             type: "GET",
             dataType: "json",
             success: function(data) {
-                console.log('hourly forecast: ', data);  
+                //console.log('hourly forecast: ', data);  
                 
                 var horarios = [];
                 var temperaturas = [];
@@ -734,13 +743,15 @@ var tempTwelveHoursForecasts = [
                     horarios.push( String(hora) + 'h' );
                     temperaturas.push( data[a].Temperature.Value ); 
                     
-                }
-                //gerarGraficoTeste();
+                } 
                 gerarGrafico(horarios, temperaturas);
+               
+                $('.refresh-loader').fadeOut();
 
             },
             error: function() {
                 console.log("Erro");
+                gerarErro("Erro na previsão hora a hora");
             }
         });
     }
@@ -752,7 +763,7 @@ var tempTwelveHoursForecasts = [
             type: "GET",
             dataType: "json",           
             success: function(data) {
-                console.log(data); 
+                //console.log(data); 
                 try {
                     weatherObject.cidade = data.ParentCity.LocalizedName;;
                 } catch {
@@ -769,6 +780,7 @@ var tempTwelveHoursForecasts = [
             },
             error: function() {
                 console.log("Erro");
+                gerarErro("Erro ao pegar local usuario");
             }
         });
     }
@@ -782,7 +794,7 @@ var tempTwelveHoursForecasts = [
             type: "GET",
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                //console.log(data);
                 if (data.geoplugin_latitude && data.geoplugin_longitude) {
                     pegarLocalUsuario(data.geoplugin_latitude, data.geoplugin_longitude);       
                 } else {
@@ -806,6 +818,30 @@ var tempTwelveHoursForecasts = [
     }
 
     pegarCoordenadasdoIP();
+
+    $("#search-button").click(function(){
+        $('.refresh-loader').show();
+        var local = $("input#local").val();
+        if (local) {
+            pegarCoordenadasDaPesquisa(local);
+        } else {
+            alert("Localinválido!");
+        }
+    });
+
+    $("input#local").on('keypress', function(e){
+        
+        if (e.which == 13) {
+            $('.refresh-loader').show();
+            var local = $("input#local").val(); 
+            if (local) {
+                pegarCoordenadasDaPesquisa(local);
+            } else {
+                alert("Local inválido!");
+            }
+        } 
+    });
+
 
 
 });

@@ -34,9 +34,24 @@ body.loading {
     overflow: hidden;
 }
 
+#aviso-erro {
+    display: none;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    background-color: #f65757;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    font: nun
+}
 
 .refresh-loader {
-    display: none;
+    display: none; 
     z-index: 999;           
     position: fixed;
     top: 0;
